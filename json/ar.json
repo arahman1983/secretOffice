@@ -1,0 +1,18 @@
+{
+    "signOut" : "نسجيل خروج",
+    "welcome" : "مرحبًا",
+    "systemLog" : "سجل النشاطات",
+    "users" : "المستخدمين",
+    "myFiles" : "ملفاتي",
+    "settings" : "الإعدادات",
+    "footerLinks":[
+        {
+            "name" : "المساعدة",
+            "link" : "#"
+        },
+        {
+            "name" : "ُEnglish",
+            "link" : "#"
+        }
+    ]
+}

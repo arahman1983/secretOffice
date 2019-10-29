@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="images/fav.png">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="ar/bootstrap-4.0.0-rtl-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="fontawesome-free-5.6.3-web/fontawesome-free-5.6.3-web/css/all.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="css/style.css" rel="stylesheet">
+    <title>Secret Office</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-gradient">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.png" width="180" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="#" title="" id="settings"><i class="fas fa-cog"></i></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#" title="" id="myFiles">
+                        <i class="fas fa-folder-open"></i>
+                        <sup class="badge badge-danger">1</sup>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#"><i class="fas fa-users" title="" id="users"></i></a>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="#"><i class="fas fa-clipboard-list" title="" id="systemLog"></i></a>
+                </li>
+            </ul>
+            <span class="navbar-text mx-3">
+                <span id="welcome"></span> <span>محمد أحمد</span>
+            </span>
+            <button class="btn btn-danger btn-sm mx-3" id="signOut">
+                <!-- تسجيل خروج -->
+            </button>
+        </div>
+    </nav>
+    <!-- Body -->
+    <div class=" container screens py-5" id="screens">
+
+    </div>
+
+    <!-- Footer -->
+    <hr />
+    <div class="container-fluid footer-class">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    
+                </div>
+                <div class="col-md-4 text-center">Powerd By <img src="images/TSS_Logo-1.png" width="50"></div>
+                <div class="col-md-4">
+                        <ul class="footer-links float-right" id="footerLinks">
+                                <!-- <li><a href="#">المساعدة</a></li>
+                                <li><a href="#">English</a></li> -->
+                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
+    <script src="js/myscript.js"></script>
+</body>
+
+</html>

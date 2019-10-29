@@ -12,6 +12,8 @@
         type="text/css" />
     <link href="css/style.css" rel="stylesheet">
     <title>Secret Office</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
 </head>
 
 <body>
@@ -27,21 +29,21 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="#" title="" id="settings"><i class="fas fa-cog"></i></a>
+                    <a class="nav-link" href="profile.html" title="" id="settings"><i class="fas fa-cog"></i></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#" title="" id="myFiles">
+                    <a class="nav-link" href="myFiles.html"  title="" id="myFiles">
                         <i class="fas fa-folder-open"></i>
                         <sup class="badge badge-danger">1</sup>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#"><i class="fas fa-users" title="" id="users"></i></a>
+                    <a class="nav-link" href="allUsers.html"><i class="fas fa-users" title="" id="users"></i></a>
                 </li>
 
 
                 <li class="nav-item ">
-                    <a class="nav-link" href="#"><i class="fas fa-clipboard-list" title="" id="systemLog"></i></a>
+                    <a class="nav-link" href="logsDataTable.html"><i class="fas fa-clipboard-list" title="" id="systemLog"></i></a>
                 </li>
             </ul>
             <span class="navbar-text mx-3">
@@ -77,10 +79,26 @@
     </div>
 
     <!-- Script -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
+    
     <script src="ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
     <script src="js/myscript.js"></script>
+
+    <script>
+        function loadPages(page){
+            $('#screens').load(page);
+        }
+
+        let userRole = "admin";
+        $('document').ready(function(){
+            if(userRole === "admin"){
+                window.location = '/logsDataTable.html'
+            }else{
+                window.location = '/myFiles.html'
+            }
+            
+        })
+    
+    </script>
 </body>
 
 </html>

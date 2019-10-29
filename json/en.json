@@ -1,0 +1,27 @@
+{
+    "signOut" : "Sign out",
+    "welcome" : "Welcome",
+    "systemLog" : "System log",
+    "users" : "Users",
+    "myFiles" : "My files",
+    "settings" : "Settings",
+    "usersTable" : [
+        {"name" : "#"},
+        {"name" : "User name"},
+        {"name" : "Name"},
+        {"name" : "Roles"},
+        {"name" : "Job Title"},
+        {"name" : "E-maol"}
+
+    ],
+    "footerLinks":[
+        {
+            "name" : "Help",
+            "link" : "#"
+        },
+        {
+            "name" : "ُعربي",
+            "link" : "#"
+        }
+    ]
+}

@@ -32,7 +32,9 @@ a, a:hover{
 }
 
 
-
+body{
+    background-image: linear-gradient(#dedede, #FFF);
+}
 .screens{
     min-height: 78vh;
 }
@@ -100,7 +102,7 @@ a, a:hover{
     display: none;
 }
 
-label.error{
+label.error,label.error2{
     font-size: 0.8em;
     color: red;
 }
@@ -112,4 +114,27 @@ label.error{
 
 .btn {
     min-width: 200px;
+}
+
+.logcontainer{
+    min-height: 89vh;
+}
+
+.card{
+    box-shadow: grey 0px 0px 10px;
+}
+
+.logcontainer{
+    background: url(/images/loginbg.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+}
+
+#loginForm .input-group-text{
+    background: transparent;
+    border-left: 0px;
+}
+
+#loginForm .form-control{
+    border-right: 0px;
 }

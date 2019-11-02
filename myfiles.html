@@ -169,36 +169,102 @@
 </div>
 
 <!--Decrypt-->
-<div class="modal fade" id="decryptFileModal" tabindex="-1" role="dialog" aria-labelledby="decryptFiles" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-info" id="decryptFiles">Sign a File</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+<div class="modal fade" id="decryptFileModal" tabindex="-1" role="dialog" aria-labelledby="decryptFiles"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-info" id="decryptFiles">Decrypt a File</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="loadingSignDecrypt">
+                    <p class="w-100 text-center d-block">جاري التاكد من هوية المستخدم</p>
+                    <p class="w-100 text-center d-block">
+                        <i class="fas fa-spinner  text-info fa-spin fa-3x"></i>
+                    </p>
                 </div>
-                <div class="modal-body">
-                    <div id="loadingSignDecrypt">
-                        <p class="w-100 text-center d-block">جاري التاكد من هوية المستخدم</p>
-                        <p class="w-100 text-center d-block">
-                            <i class="fas fa-spinner  text-info fa-spin fa-3x"></i>
-                        </p>
-                    </div>
-                    <div id="userConformDecrypt" class="d-none">
-                        <p class="w-100 text-center d-block">تم التأكد من هوية المستخدم</p>
-                        <p class="w-100 text-center d-block">
-                            <i class="far fa-check-circle text-info fa-3x"></i>
-                        </p>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-around">
-                    <button type="button" class="btn btn-secondary" id="signFileBtn">توقيع الملف</button>
+                <div id="userConformDecrypt" class="d-none">
+                    <p class="w-100 text-center d-block">تم التأكد من هوية المستخدم</p>
+                    <p class="w-100 text-center d-block">
+                        <i class="far fa-check-circle text-info fa-3x"></i>
+                    </p>
                 </div>
             </div>
+
         </div>
     </div>
+</div>
 
+<!--Encrypt-->
+<div class="modal fade" id="encryptFileModal" tabindex="-1" role="dialog" aria-labelledby="encryptFile"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-info" id="encryptFile">Encrypt a File</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formEncrypt" novalidate>
+                    <div id="fileDescEncrypt">
+
+
+                        <div class="form-group">
+                            <label class="col-form-label w-100" id="emailLable">وصف الملف</label class="col-form-label">
+                            <input id="emailEncrypt" name="emailEncrypt" class="form-control" type="text" required>
+                            <small class="d-block" id="manyEmails">يمكن اضافة أكثر من بريد بفاصلة ;</small>
+                            <label class="error2 d-none">هذا الحقل يجب أن يحتوي على ايميلات</label>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label w-100" id="describLable">وصف الملف</label
+                                class="col-form-label">
+                            <textarea id="EncryptDescribe" name="EncryptDescribe" class="form-control"
+                                required></textarea>
+
+                        </div>
+
+                        <div class="modal-footer d-flex justify-content-around">
+                            <input type="submit" class="btn btn-secondary" id="encryptFileBtn" value="تشفير الملف">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div id="loadingSignEncry" class="d-none ">
+                <p class="w-100 text-center d-block">جاري التاكد من البيانات المرسلة</p>
+                <p class="w-100 text-center d-block">
+                    <i class="fas fa-spinner  text-info fa-spin fa-3x"></i>
+                </p>
+            </div>
+            <div id="userConformEncry" class="d-none">
+                <p class="w-100 text-center d-block">تم التأكد من البيانات المرسلة</p>
+                <p class="w-100 text-center d-block">
+                    <i class="far fa-check-circle text-info fa-3x"></i>
+                </p>
+            </div>
+            <div id="openSystem" class="d-none ">
+                <p class="w-100 text-center d-block">جاري تشفير الملف</p>
+                <p class="w-100 text-center d-block">
+                    <i class="fas fa-spinner  text-info fa-spin fa-3x"></i>
+                </p>
+            </div>
+            <div id="encyends" class="d-none ">
+                <p class="w-100 text-center d-block">تم تشفير الملف</p>
+                <p class="w-100 text-center d-block">
+                    <img src="/images/300-512.png" width="50px" />
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
 
 <!--ends Modal -->
 <script src="js/jquery-3.4.1.min.js"></script>
@@ -206,6 +272,9 @@
 <script src="ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
 <script src="js/myscript.js"></script>
 <script src="js/datatables.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="ar/messages_ar.min.js"></script>
+
 <script>
 
 
@@ -226,7 +295,7 @@
     });
 
 
-    $(".actions img").click(function(){
+    $(".actions img").click(function () {
         ///sending data for modal
         setTimeout(function () {
             $("#loadingSignDecrypt").addClass("d-none");
@@ -266,6 +335,44 @@
                 $("#userConform").addClass("d-none");
                 $("#signFileBtn").removeAttr("disabled");
             }, 1000)
+        }, 1000)
+    })
+
+    $("#formEncrypt").validate();
+    $("#formEncrypt").submit(function (e) {
+        e.preventDefault();
+        let emailsValid = $("#emailEncrypt").val()
+        if (emailsValid.indexOf("@") < 0) {
+            $("#emailEncrypt").siblings("label.error2").removeClass("d-none")
+            return false
+        }
+        $("#emailEncrypt").siblings("label.error2").addClass("d-none")
+        let emailsArr = emailsValid.split(";")
+        let fileDescrip = $("#EncryptDescribe").val();
+        console.log(emailsArr);
+        console.log(fileDescrip);
+        $("#fileDescEncrypt").addClass("d-none");
+        $("#loadingSignEncry").removeClass("d-none");
+
+        setTimeout(function () {
+            $("#loadingSignEncry").addClass("d-none");
+            $("#userConformEncry").removeClass("d-none")
+            console.log("taken Recived");
+            setTimeout(function () {
+                $("#userConformEncry").addClass("d-none")
+                $("#openSystem").removeClass("d-none");
+                console.log("open system and send taken");
+                setTimeout(function () {
+                    $("#openSystem").addClass("d-none")
+                    $("#encyends").removeClass("d-none");
+                    console.log("open system and send taken");
+                    setTimeout(function () {
+                        $(".close").click();
+                        $("#fileDescEncrypt").removeClass("d-none");
+                        $("#encyends").addClass("d-none");
+                    }, 1000)
+                }, 1000);
+            }, 1000);
         }, 1000)
     })
 

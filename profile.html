@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="images/fav.png">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="ar/bootstrap-4.0.0-rtl-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="fontawesome-free-5.6.3-web/fontawesome-free-5.6.3-web/css/all.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="css/style.css" rel="stylesheet">
+    <title>Secret Office</title>
+    <style>
+    label{
+        font-weight: bold;
+        color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <!--Header -->
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-gradient">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.png" width="180" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="profile.html" title="" id="settings"><i class="fas fa-cog"></i></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="myFiles.html" title="" id="myFiles">
+                        <i class="fas fa-folder-open"></i>
+                        <sup class="badge badge-danger">1</sup>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="allUsers.html"><i class="fas fa-users" title="" id="users"></i></a>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="logsDataTable.html"><i class="fas fa-clipboard-list" title=""
+                            id="systemLog"></i></a>
+                </li>
+            </ul>
+            <span class="navbar-text mx-3">
+                <span id="welcome"></span> <span>محمد أحمد</span>
+            </span>
+            <button class="btn btn-danger btn-sm mx-3" id="signOut">
+                <!-- تسجيل خروج -->
+            </button>
+        </div>
+    </nav>
+    <div class=" container screens py-5" id="screens">
+
+
+        <!--Add user Form-->
+
+        <div class="w-100 mb-5 ">
+            <h4 class="text-danger text-center" id="addUser"></h4>
+        </div>
+        <div class="col-md-8 mx-auto">
+            <form id="formAddUser">
+                <div class="form-group row">
+                    <label for="userNameInput" class="col-sm-3 col-form-label" id="userNameLabel">User Name</label>
+                    <div class="col-sm-9">
+                        <span id="userName">user Name</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="passWordInput" class="col-sm-3 col-form-label" id="passWordLabel">Password
+                            <a class="text-info" href="#"><i class="fas fa-edit"></i></a>
+                    </label>
+                    
+                    <div class="col-sm-9">
+                            <span id="passWord">user Name</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="userEmailInput" class="col-sm-3 col-form-label" id="userEmailLabel">Email
+
+                            <a class="text-info" href="#"><i class="fas fa-edit"></i></a>
+                    </label>
+                    <div class="col-sm-9">
+                            <span id="userEmail">user Name</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="userFullNameInput" class="col-sm-3 col-form-label" id="userFullNameLabel">user Full
+                        Name
+                    </label>
+                    <div class="col-sm-9">
+                            <span id="userFullName">user Name</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="userPhoneInput" class="col-sm-3 col-form-label" id="userPhoneLabel">User Phone
+                            <a class="text-info" href="#"><i class="fas fa-edit"></i></a>
+                    </label>
+                    <div class="col-sm-9">
+                            <span id="userPhone">user Name</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="userJobInput" class="col-sm-3 col-form-label" id="userJobLabel">User Job Title</label>
+                    <div class="col-sm-9">
+                            <span id="userJob">user Name</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                        <label for="userJobInput" class="col-sm-3 col-form-label" id="userRoleLabel">صلاحيات المستخدم</label>
+                        <div class="col-sm-9">
+                            <p id="userRole">
+                                <span class="d-block">admin</span>
+                                <span class="d-block">user</span>
+                            </p>
+                        </div>
+                    </div>
+              
+            </form>
+        </div>
+
+        <!---Footer-->
+
+        <hr />
+        <div class="container-fluid footer-class">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4 text-center">Powerd By <img src="images/TSS_Logo-1.png" width="50"></div>
+                    <div class="col-md-4">
+                        <ul class="footer-links float-right" id="footerLinks">
+                            <!-- <li><a href="#">المساعدة</a></li>
+                                    <li><a href="#">English</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- scripts -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
+        <script src="js/myscript.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="ar/messages_ar.min.js"></script>
+        <script>
+            $("document").ready(function(){
+                let userData = {
+                    "userName" : "user name",
+                    "passWord" : "••••••••",
+                    "userEmail" : "user Email",
+                    "userFullName" : "user Full name",
+                    "userPhone" : "user phone",
+                    "userRole" : [
+                        {"name":"admin"},
+                        {"name" : "user"}
+                    ]
+                }
+                $("#userName").text(userData.userName);
+                $("#passWord").text(userData.passWord);
+                $("#userEmail").text(userData.userEmail);
+                $("#userFullName").text(userData.userFullName);
+                $("#userPhone").text(userData.userPhone);
+                let userRoles = userData.userRole
+
+                userRoles.each(function(){
+                    $("#userRole").append("<span>"+this.name+"</span>")
+                })
+
+            })
+
+        </script>
+
+</body>
+
+</html>

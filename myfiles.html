@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="images/fav.png">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="ar/bootstrap-4.0.0-rtl-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="fontawesome-free-5.6.3-web/fontawesome-free-5.6.3-web/css/all.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="css/style.css" rel="stylesheet">
+    <title>Secret Office</title>
+    <link href="css/datatables.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-gradient">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.png" width="180" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="profile.html" title="" id="settings"><i class="fas fa-cog"></i></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="myFiles.html" title="" id="myFiles">
+                        <i class="fas fa-folder-open"></i>
+                        <sup class="badge badge-danger">1</sup>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="allUsers.html"><i class="fas fa-users" title="" id="users"></i></a>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="logsDataTable.html"><i class="fas fa-clipboard-list" title=""
+                            id="systemLog"></i></a>
+                </li>
+            </ul>
+            <span class="navbar-text mx-3">
+                <span id="welcome"></span> <span>محمد أحمد</span>
+            </span>
+            <button class="btn btn-danger btn-sm mx-3" id="signOut">
+                <!-- تسجيل خروج -->
+            </button>
+        </div>
+    </nav>
+    <div class=" container screens py-5" id="screens">
+
+        <div class="w-100 mb-5 ">
+            <h4 class="text-danger text-center" id="myFilesTitle"> ملفاتي</h4>
+        </div>
+        <div class="row my-3 px-3">
+            <button class="btn btn-dark text-white" data-toggle="modal" data-target="#encryptFileModal"
+                id="encryptFile">
+                <img src="images/encrypt.png" width="20"> Encrypt File
+            </button>
+        </div>
+        <div class="row my-3 px-3">
+            <button type="button" data-toggle="modal" data-target="#signFilesModal" class="btn btn-secondary text-white"
+                id="signFile">
+                <i class="fas fa-file-signature"></i> Sign File
+            </button>
+        </div>
+        <table id="myfiles" class="table table-striped" style="width:100%">
+            <thead>
+                <tr id="myfilesHeader">
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>System Architect</td>
+                    <td>Edinburgh</td>
+                    <td>61</td>
+                    <td>2011/04/25</td>
+                    <td class="actions">
+                        <i class="fas fa-share-alt text-info"></i>
+                        <a href="#"><i class="fas fa-file-download text-success"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Accountant</td>
+                    <td>Tokyo</td>
+                    <td>63</td>
+                    <td>2011/07/25</td>
+                    <td class="actions">
+                        <img src="/images/300-512.png" width="30" data-toggle="modal" data-target="#decryptFileModal" />
+                    </td>
+                </tr>
+
+
+            </tbody>
+
+        </table>
+    </div>
+
+    <hr />
+    <div class="container-fluid footer-class">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4 text-center">Powerd By <img src="images/TSS_Logo-1.png" width="50"></div>
+                <div class="col-md-4">
+                    <ul class="footer-links float-right" id="footerLinks">
+                        <!-- <li><a href="#">المساعدة</a></li>
+                                <li><a href="#">English</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Modals -->
+<!--Sign-->
+<div class="modal fade" id="signFilesModal" tabindex="-1" role="dialog" aria-labelledby="signFiles" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-info" id="signFiles">Sign a File</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="fileDesc">
+                    <label class="col-form-label w-100" id="describLable">وصف الملف</label class="col-form-label">
+                    <textarea id="describe" class="form-control"></textarea>
+                    <label class="error d-none">هذا الحقل الزامي</label>
+                </div>
+                <div id="loadingSign" class="d-none ">
+                    <p class="w-100 text-center d-block">جاري التاكد من هوية المستخدم</p>
+                    <p class="w-100 text-center d-block">
+                        <i class="fas fa-spinner  text-info fa-spin fa-3x"></i>
+                    </p>
+                </div>
+                <div id="userConform" class="d-none">
+                    <p class="w-100 text-center d-block">تم التأكد من هوية المستخدم</p>
+                    <p class="w-100 text-center d-block">
+                        <i class="far fa-check-circle text-info fa-3x"></i>
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-around">
+                <button type="button" class="btn btn-secondary" id="signFileBtn">توقيع الملف</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Decrypt-->
+<div class="modal fade" id="decryptFileModal" tabindex="-1" role="dialog" aria-labelledby="decryptFiles" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-info" id="decryptFiles">Sign a File</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="loadingSignDecrypt">
+                        <p class="w-100 text-center d-block">جاري التاكد من هوية المستخدم</p>
+                        <p class="w-100 text-center d-block">
+                            <i class="fas fa-spinner  text-info fa-spin fa-3x"></i>
+                        </p>
+                    </div>
+                    <div id="userConformDecrypt" class="d-none">
+                        <p class="w-100 text-center d-block">تم التأكد من هوية المستخدم</p>
+                        <p class="w-100 text-center d-block">
+                            <i class="far fa-check-circle text-info fa-3x"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-around">
+                    <button type="button" class="btn btn-secondary" id="signFileBtn">توقيع الملف</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--ends Modal -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
+<script src="js/myscript.js"></script>
+<script src="js/datatables.min.js"></script>
+<script>
+
+
+    $(document).ready(function () {
+        if ($("html").attr("lang") === "en") {
+            $('#myfiles').DataTable();
+        } else {
+            $('#myfiles').DataTable(
+                {
+                    "language": {
+                        "url": "/json/arDataTable.json"
+                    }
+                }
+            );
+        }
+
+
+    });
+
+
+    $(".actions img").click(function(){
+        ///sending data for modal
+        setTimeout(function () {
+            $("#loadingSignDecrypt").addClass("d-none");
+            $("#userConformDecrypt").removeClass("d-none");
+            console.log("token")
+            setTimeout(function () {
+                $(".close").click()
+                $("#loadingSignDecrypt").removeClass("d-none")
+                $("#userConformDecrypt").addClass("d-none");
+            }, 1000)
+        }, 1000)
+
+    })
+
+
+    $("#signFileBtn").click(function (e) {
+        if ($("#describe").val() == "") {
+            $("#describe").siblings("label.error").removeClass("d-none")
+            return false;
+        }
+        let filedetails = $("#describe").val();
+        console.log(filedetails)
+        $("#fileDesc").css("display", "none");
+        $("#loadingSign").removeClass("d-none")
+        $("#signFileBtn").attr("disabled", true);
+        //then after response
+        setTimeout(function () {
+            $("#loadingSign").addClass("d-none");
+            $("#userConform").removeClass("d-none");
+            console.log("token")
+            setTimeout(function () {
+                $(".close").click()
+
+                $("#fileDesc").css("display", "block");
+                $("#fileDesc textarea").val("")
+                $("#loadingSign").addClass("d-none")
+                $("#userConform").addClass("d-none");
+                $("#signFileBtn").removeAttr("disabled");
+            }, 1000)
+        }, 1000)
+    })
+
+</script>
+
+</html>

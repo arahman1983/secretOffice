@@ -29,8 +29,16 @@ if($("html").attr("lang") === "en"){
             let j = i+1
             $("#userTableHead th:nth-child("+j+")").text(tableHead[i].name)
         }
-       
 
+        let filesData = data.filesTable
+        for(let i=0; i < filesData.length; i++){
+            let j = i+1
+            $("#myfilesHeader th:nth-child("+j+")").text(filesData[i].name)
+        }
+
+
+
+        $("myfilesHeader")
         let footerLinks = data.footerLinks;
         $("#footerLinks").html(
             footerLinks.map((link) => " <li><a href='"+ link.link +"'>"+ link.name +"</a></li>")

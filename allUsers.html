@@ -19,101 +19,103 @@
 
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-gradient">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.png" width="180" />
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.png" width="180" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="profile.html" title="" id="settings"><i class="fas fa-cog"></i></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="myFiles.html" title="" id="myFiles">
+                        <i class="fas fa-folder-open"></i>
+                        <sup class="badge badge-danger">1</sup>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="allUsers.html"><i class="fas fa-users" title="" id="users"></i></a>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="logsDataTable.html"><i class="fas fa-clipboard-list" title=""
+                            id="systemLog"></i></a>
+                </li>
+            </ul>
+            <span class="navbar-text mx-3">
+                <span id="welcome"></span> <span>محمد أحمد</span>
+            </span>
+            <button class="btn btn-danger btn-sm mx-3" id="signOut">
+                <!-- تسجيل خروج -->
             </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="profile.html" title="" id="settings"><i class="fas fa-cog"></i></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="myFiles.html"  title="" id="myFiles">
-                            <i class="fas fa-folder-open"></i>
-                            <sup class="badge badge-danger">1</sup>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="allUsers.html"><i class="fas fa-users" title="" id="users"></i></a>
-                    </li>
-    
-    
-                    <li class="nav-item ">
-                        <a class="nav-link" href="logsDataTable.html"><i class="fas fa-clipboard-list" title="" id="systemLog"></i></a>
-                    </li>
-                </ul>
-                <span class="navbar-text mx-3">
-                    <span id="welcome"></span> <span>محمد أحمد</span>
-                </span>
-                <button class="btn btn-danger btn-sm mx-3" id="signOut">
-                    <!-- تسجيل خروج -->
-                </button>
-            </div>
-        </nav>
-        <div class=" container screens py-5" id="screens">
-            
-    <div class="w-100 mb-5 ">
-        <h4 class="text-danger text-center" id="usersTitle"></h4>
-    </div>
-    <div class="row my-3 px-3">
-            <a href="addUser.html" class="btn btn-secondary text-white" id="addUserBtn">
+        </div>
+    </nav>
+    <div class=" container screens py-5" id="screens">
+
+        <div class="w-100 mb-5 ">
+            <h4 class="text-danger text-center" id="usersTitle"></h4>
+        </div>
+        <div class="row my-3 px-3">
+            <a href="addUser.html" class="btn btn-dark text-white" id="addUserBtn">
                 <i class="fas fa-plus mr-3"></i> Add user
             </a>
         </div>
         <div class="row my-3 px-3">
-                <button type="button" data-toggle="modal" data-target="#importUSerModal" class="btn btn-secondary text-white" id="importUser">
+            <button type="button" data-toggle="modal" data-target="#importUSerModal"
+                class="btn btn-secondary text-white" id="importUser">
                 <i class="fas fa-file-import"></i> Import users
-                </button>
-            </div>
-    <table id="dataTable" class="table table-striped" style="width:100%">
-        <thead>
-            <tr id="userTableHead">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody id="tableDataArr">
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-                <td class="actions">
-                        <a href="addUser.html" ><i class="fas fa-user-edit text-info" ></i></a>
+            </button>
+        </div>
+        <table id="dataTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr id="userTableHead">
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tableDataArr">
+                <tr>
+                    <td>Tiger Nixon</td>
+                    <td>System Architect</td>
+                    <td>Edinburgh</td>
+                    <td>61</td>
+                    <td>2011/04/25</td>
+                    <td>$320,800</td>
+                    <td class="actions">
+                        <a href="addUser.html"><i class="fas fa-user-edit text-info"></i></a>
                         <i class="fas fa-user-times text-danger" data-toggle="modal" data-target="#deleteModal"></i>
                         <i class="fas fa-award text-success" data-toggle="modal" data-target="#certModal"></i>
 
-                </td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-                <td class="actions">
-                        <a href="addUser.html" ><i class="fas fa-user-edit text-info" ></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Garrett Winters</td>
+                    <td>Accountant</td>
+                    <td>Tokyo</td>
+                    <td>63</td>
+                    <td>2011/07/25</td>
+                    <td>$170,750</td>
+                    <td class="actions">
+                        <a href="addUser.html"><i class="fas fa-user-edit text-info"></i></a>
                         <i class="fas fa-user-times text-danger" data-toggle="modal" data-target="#deleteModal"></i>
                         <i class="fas fa-award text-success" data-toggle="modal" data-target="#certModal"></i>
 
-                </td>
-            </tr>
+                    </td>
+                </tr>
 
-        </tbody>
+            </tbody>
 
-    </table>
+        </table>
     </div>
 
     <hr />
@@ -121,14 +123,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    
+
                 </div>
                 <div class="col-md-4 text-center">Powerd By <img src="images/TSS_Logo-1.png" width="50"></div>
                 <div class="col-md-4">
-                        <ul class="footer-links float-right" id="footerLinks">
-                                <!-- <li><a href="#">المساعدة</a></li>
+                    <ul class="footer-links float-right" id="footerLinks">
+                        <!-- <li><a href="#">المساعدة</a></li>
                                 <li><a href="#">English</a></li> -->
-                            </ul>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -136,89 +138,91 @@
 </body>
 
 <!-- Modals -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title text-danger" id="deleteModalLabel">Delete User</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body d-flex justify-content-center">
-            <span id="cancelConfirm">هل متأكد من حذف المستخدم</span>
-        </div>
-        <div class="modal-footer d-flex justify-content-around">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-          <button type="button" class="btn btn-danger">Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="certModal" tabindex="-1" role="dialog" aria-labelledby="certModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
+        <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title text-success" id="certModalLabel">Add Cert</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <h5 class="modal-title text-danger" id="deleteModalLabel">Delete User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <span id="cancelConfirm">هل متأكد من حذف المستخدم</span>
+            </div>
+            <div class="modal-footer d-flex justify-content-around">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="certModal" tabindex="-1" role="dialog" aria-labelledby="certModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success" id="certModalLabel">Add Cert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-              <p id="userName" class="text-center">
-                <span id="userNameLabel">المستخدم : </span>  
-                <span id="userName">محمد ابراهيم</span>  
+                <p id="userName" class="text-center">
+                    <span id="userNameLabel">المستخدم : </span>
+                    <span id="userName">محمد ابراهيم</span>
                 </p>
                 <form>
-                <div class="row my-3 justify-content-center">
-                    
-                    <label class="addCert btn btn-secondary">
-                        <span>Add Cert</span>
-                        <input type="file" id="certAdd" class="form-control" accept=".cert" />
-                    </label>
-                    <p class="w-100 text-center"><small>يجب أن يكون الملف بامتداد cert</small></p>
-                    <p class="text-danger w-100 text-center d-none validateMess">file is wrong type</p>
-                    <p class="w-100 text-center" id="Uploadedfile"></p>
-                    <input type="submit" class="btn btn-success" id="uploadCert" value="Upload cert" />
-                </div>
-            </form>
-            </div>
-          </div>
-        </div>
-      </div>
+                    <div class="row my-3 justify-content-center">
 
-      
-  <div class="modal fade" id="importUSerModal" tabindex="-1" role="dialog" aria-labelledby="importUSerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
+                        <label class="addCert btn btn-secondary">
+                            <span>Add Cert</span>
+                            <input type="file" id="certAdd" class="form-control" accept=".cert" />
+                        </label>
+                        <p class="w-100 text-center"><small>يجب أن يكون الملف بامتداد cert</small></p>
+                        <p class="text-danger w-100 text-center d-none validateMess">file is wrong type</p>
+                        <p class="w-100 text-center" id="Uploadedfile"></p>
+                        <input type="submit" class="btn btn-success" id="uploadCert" value="Upload cert" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="importUSerModal" tabindex="-1" role="dialog" aria-labelledby="importUSerModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title text-success" id="importUSerModalLabel">Import Users</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <h5 class="modal-title text-success" id="importUSerModalLabel">Import Users</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-              
-                <form>
-                <div class="row my-3 justify-content-center">
-                    
-                    <label class="addCert btn btn-secondary">
-                        <span>Select file</span>
-                        <input type="file" id="userImport" class="form-control" accept=".xlsx,.xls" />
-                    </label>
-                    <p class="w-100 text-center"><small>يجب أن يكون الملف بامتداد xlsx, xls</small></p>
-                    <p class="text-danger w-100 text-center d-none validateMess">file is wrong type</p>
-                    <p class="w-100 text-center" id="importedfile"></p>
-                    <input type="submit" class="btn btn-success" id="uploadfile" value="Upload file" />
-                </div>
-            </form>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      
+                <form>
+                    <div class="row my-3 justify-content-center">
+
+                        <label class="addCert btn btn-secondary">
+                            <span>Select file</span>
+                            <input type="file" id="userImport" class="form-control" accept=".xlsx,.xls" />
+                        </label>
+                        <p class="w-100 text-center"><small>يجب أن يكون الملف بامتداد xlsx, xls</small></p>
+                        <p class="text-danger w-100 text-center d-none validateMess">file is wrong type</p>
+                        <p class="w-100 text-center" id="importedfile"></p>
+                        <input type="submit" class="btn btn-success" id="uploadfile" value="Upload file" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <!-- scripts -->
 <script src="js/jquery-3.4.1.min.js"></script>

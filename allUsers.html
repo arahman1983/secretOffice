@@ -60,14 +60,12 @@
         <div class="w-100 mb-5 ">
             <h4 class="text-danger text-center" id="usersTitle"></h4>
         </div>
-        <div class="row my-3 px-3">
-            <a href="addUser.html" class="btn btn-dark text-white" id="addUserBtn">
+        <div class="row my-3 px-3 justify-content-lg-start">
+            <a href="addUser.html" class="btn btn-dark text-white " id="addUserBtn">
                 <i class="fas fa-plus mr-3"></i> Add user
             </a>
-        </div>
-        <div class="row my-3 px-3">
             <button type="button" data-toggle="modal" data-target="#importUSerModal"
-                class="btn btn-secondary text-white" id="importUser">
+                class="btn btn-secondary text-white mx-3" id="importUser">
                 <i class="fas fa-file-import"></i> Import users
             </button>
         </div>
@@ -238,7 +236,7 @@
             $('#dataTable').DataTable(
                 {
                     "language": {
-                        "url": "/json/arDataTable.json"
+                        "url": "json/arDataTable.json"
                     }
                 }
             );

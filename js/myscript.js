@@ -23,6 +23,7 @@ if($("html").attr("lang") === "en"){
         $("#logTitle").text(data.systemLog)
         $("#usersTitle").text(data.users)
         $("#addUser").text(data.addUser)
+        $("#userProfile").text(data.userProfile)
         let tableHead = data.usersTable;
 
         for(let i=0; i < tableHead.length; i++){
@@ -36,6 +37,11 @@ if($("html").attr("lang") === "en"){
             $("#myfilesHeader th:nth-child("+j+")").text(filesData[i].name)
         }
 
+        let logheaders = data.systemLogs;
+        for(let i=0; i < logheaders.length; i++){
+            let j = i+1
+            $("#systemLogsHeader th:nth-child("+j+")").text(logheaders[i].name)
+        }
 
 
         $("myfilesHeader")

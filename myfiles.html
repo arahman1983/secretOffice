@@ -60,14 +60,13 @@
         <div class="w-100 mb-5 ">
             <h4 class="text-danger text-center" id="myFilesTitle"> ملفاتي</h4>
         </div>
-        <div class="row my-3 px-3">
+        <div class="row my-3 px-3 justify-content-start">
             <button class="btn btn-dark text-white" data-toggle="modal" data-target="#encryptFileModal"
                 id="encryptFile">
                 <img src="images/encrypt.png" width="20"> Encrypt File
             </button>
-        </div>
-        <div class="row my-3 px-3">
-            <button type="button" data-toggle="modal" data-target="#signFilesModal" class="btn btn-secondary text-white"
+
+            <button type="button" data-toggle="modal" data-target="#signFilesModal" class="btn btn-secondary text-white mx-3"
                 id="signFile">
                 <i class="fas fa-file-signature"></i> Sign File
             </button>
@@ -102,7 +101,7 @@
                     <td>63</td>
                     <td>2011/07/25</td>
                     <td class="actions">
-                        <img src="/images/300-512.png" width="30" data-toggle="modal" data-target="#decryptFileModal" />
+                        <img src="images/300-512.png" width="30" data-toggle="modal" data-target="#decryptFileModal" />
                     </td>
                 </tr>
 
@@ -257,7 +256,7 @@
             <div id="encyends" class="d-none ">
                 <p class="w-100 text-center d-block">تم تشفير الملف</p>
                 <p class="w-100 text-center d-block">
-                    <img src="/images/300-512.png" width="50px" />
+                    <img src="images/300-512.png" width="50px" />
                 </p>
             </div>
         </div>
@@ -285,7 +284,7 @@
             $('#myfiles').DataTable(
                 {
                     "language": {
-                        "url": "/json/arDataTable.json"
+                        "url": "json/arDataTable.json"
                     }
                 }
             );

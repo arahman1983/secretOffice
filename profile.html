@@ -67,7 +67,7 @@
         <!--Add user Form-->
 
         <div class="w-100 mb-5 ">
-            <h4 class="text-danger text-center" id="addUser"></h4>
+            <h4 class="text-danger text-center" id="userProfile"></h4>
         </div>
         <div class="col-md-8 mx-auto">
             <form id="formAddUser">
@@ -114,15 +114,14 @@
                 <div class="form-group row">
                     <label for="userJobInput" class="col-sm-3 col-form-label" id="userJobLabel">User Job Title</label>
                     <div class="col-sm-9">
-                            <span id="userJob">user Name</span>
+                            <span id="userJob"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                         <label for="userJobInput" class="col-sm-3 col-form-label" id="userRoleLabel">صلاحيات المستخدم</label>
                         <div class="col-sm-9">
                             <p id="userRole">
-                                <span class="d-block">admin</span>
-                                <span class="d-block">user</span>
+                                
                             </p>
                         </div>
                     </div>
@@ -166,6 +165,7 @@
                     "userEmail" : "user Email",
                     "userFullName" : "user Full name",
                     "userPhone" : "user phone",
+                    "userJob" : "user title",
                     "userRole" : [
                         {"name":"admin"},
                         {"name" : "user"}
@@ -176,10 +176,11 @@
                 $("#userEmail").text(userData.userEmail);
                 $("#userFullName").text(userData.userFullName);
                 $("#userPhone").text(userData.userPhone);
-                let userRoles = userData.userRole
+                $("#userJob").text(userData.userJob)
+                let userRoles = userData.userRole;
 
-                userRoles.each(function(){
-                    $("#userRole").append("<span>"+this.name+"</span>")
+                userRoles.map((role)=>{
+                    $("#userRole").append("<span class='d-block'>"+role.name+"</span>")
                 })
 
             })

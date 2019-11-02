@@ -73,3 +73,33 @@ a, a:hover{
 .dataTable thead tr{
     background: #D1D3D4;
 }
+
+.actions{
+    display: flex;
+    justify-content: space-around;
+}
+.actions i{
+    padding: 0 0.5em;
+    margin: 0 0.2em;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.addCert{
+    padding: 0.2em 1em;
+    width: 100px;
+
+}
+.addCert input{
+    display: none;
+}
+
+label.error{
+    font-size: 0.8em;
+    color: red;
+}
+
+.form-check-inline label.error{
+    position: absolute;
+    top: 2em;
+}

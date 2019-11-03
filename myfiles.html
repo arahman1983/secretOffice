@@ -63,12 +63,12 @@
         <div class="row my-3 px-3 justify-content-start">
             <button class="btn btn-dark text-white" data-toggle="modal" data-target="#encryptFileModal"
                 id="encryptFile">
-                <img src="images/encrypt.png" width="20"> Encrypt File
+                <img src="images/encrypt.png" width="20"><span id="encryptMainBtn"> Encrypt File</span>
             </button>
 
             <button type="button" data-toggle="modal" data-target="#signFilesModal" class="btn btn-secondary text-white mx-3"
                 id="signFile">
-                <i class="fas fa-file-signature"></i> Sign File
+                <i class="fas fa-file-signature"></i> <span id="signMainBtn">Sign File</span>
             </button>
         </div>
         <table id="myfiles" class="table table-striped" style="width:100%">
@@ -145,16 +145,16 @@
                 <div id="fileDesc">
                     <label class="col-form-label w-100" id="describLable">وصف الملف</label class="col-form-label">
                     <textarea id="describe" class="form-control"></textarea>
-                    <label class="error d-none">هذا الحقل الزامي</label>
+                    <label class="error d-none required">هذا الحقل الزامي</label>
                 </div>
                 <div id="loadingSign" class="d-none ">
-                    <p class="w-100 text-center d-block">جاري التاكد من هوية المستخدم</p>
+                    <p class="w-100 text-center d-block confirmUserId">جاري التاكد من هوية المستخدم</p>
                     <p class="w-100 text-center d-block">
                         <i class="fas fa-spinner  text-info fa-spin fa-3x"></i>
                     </p>
                 </div>
                 <div id="userConform" class="d-none">
-                    <p class="w-100 text-center d-block">تم التأكد من هوية المستخدم</p>
+                    <p class="w-100 text-center d-block confirmUserDone">تم التأكد من هوية المستخدم</p>
                     <p class="w-100 text-center d-block">
                         <i class="far fa-check-circle text-info fa-3x"></i>
                     </p>
@@ -180,13 +180,13 @@
             </div>
             <div class="modal-body">
                 <div id="loadingSignDecrypt">
-                    <p class="w-100 text-center d-block">جاري التاكد من هوية المستخدم</p>
+                    <p class="w-100 text-center d-block confirmUser">جاري  من هوية المستخدم</p>
                     <p class="w-100 text-center d-block">
                         <i class="fas fa-spinner  text-info fa-spin fa-3x"></i>
                     </p>
                 </div>
                 <div id="userConformDecrypt" class="d-none">
-                    <p class="w-100 text-center d-block">تم التأكد من هوية المستخدم</p>
+                    <p class="w-100 text-center d-block confirmUserDone">تم التأكد من  المستخدم</p>
                     <p class="w-100 text-center d-block">
                         <i class="far fa-check-circle text-info fa-3x"></i>
                     </p>
@@ -203,7 +203,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-info" id="encryptFile">Encrypt a File</h5>
+                <h5 class="modal-title text-info" id="encryptFileTitle"> a File</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -214,14 +214,14 @@
 
 
                         <div class="form-group">
-                            <label class="col-form-label w-100" id="emailLable">وصف الملف</label class="col-form-label">
+                            <label class="col-form-label w-100" id="emailLable">وصف الملف</label >
                             <input id="emailEncrypt" name="emailEncrypt" class="form-control" type="text" required>
                             <small class="d-block" id="manyEmails">يمكن اضافة أكثر من بريد بفاصلة ;</small>
                             <label class="error2 d-none">هذا الحقل يجب أن يحتوي على ايميلات</label>
 
                         </div>
                         <div class="form-group">
-                            <label class="col-form-label w-100" id="describLable">وصف الملف</label
+                            <label class="col-form-label w-100" id="describLableEnc">وصف الملف</label
                                 class="col-form-label">
                             <textarea id="EncryptDescribe" name="EncryptDescribe" class="form-control"
                                 required></textarea>
@@ -236,25 +236,25 @@
                 </form>
             </div>
             <div id="loadingSignEncry" class="d-none ">
-                <p class="w-100 text-center d-block">جاري التاكد من البيانات المرسلة</p>
+                <p class="w-100 text-center d-block" id="confirmSentData">جاري التاكد من البيانات المرسلة</p>
                 <p class="w-100 text-center d-block">
                     <i class="fas fa-spinner  text-info fa-spin fa-3x"></i>
                 </p>
             </div>
             <div id="userConformEncry" class="d-none">
-                <p class="w-100 text-center d-block">تم التأكد من البيانات المرسلة</p>
+                <p class="w-100 text-center d-block" id="confirmSentDataDone">تم التأكد من البيانات المرسلة</p>
                 <p class="w-100 text-center d-block">
                     <i class="far fa-check-circle text-info fa-3x"></i>
                 </p>
             </div>
             <div id="openSystem" class="d-none ">
-                <p class="w-100 text-center d-block">جاري تشفير الملف</p>
+                <p class="w-100 text-center d-block" id="encrypting">جاري تشفير الملف</p>
                 <p class="w-100 text-center d-block">
                     <i class="fas fa-spinner  text-info fa-spin fa-3x"></i>
                 </p>
             </div>
             <div id="encyends" class="d-none ">
-                <p class="w-100 text-center d-block">تم تشفير الملف</p>
+                <p class="w-100 text-center d-block" id="encryptingDone">تم تشفير الملف</p>
                 <p class="w-100 text-center d-block">
                     <img src="images/300-512.png" width="50px" />
                 </p>

@@ -26,7 +26,7 @@
                 </div>
                 <div class="card my-2">
                     <div class="card-body">
-                        <h4 class="card-title text-center">تسجيل الدخول</h4>
+                        <h4 class="card-title text-center" id="signPageTitle">تسجيل </h4>
                         <form id="loginForm" class="mt-5">
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
@@ -36,7 +36,7 @@
                                     placeholder="Username">
                                     
                             </div>
-                            <label class='error d-none'>userName is required</label>
+                            <label class='error d-none' id="usernameValidate">userName is required</label>
                             <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fas fa-lock"></i></div>
@@ -44,19 +44,19 @@
                                     <input type="password" id="passwordLog" name="passwordLog" class="form-control" id="inlineFormInputGroup"
                                         placeholder="password">
                                 </div>
-                                <label class='error d-none'>password is required</label>
+                                <label class='error d-none' id="passwordValidate">password is required</label>
 
                             <div class="input-group mb-2">
 
-                                <button type="submit" class="btn btn-secondary w-100">تسجيل دخول</button>
+                                <button type="submit" class="btn btn-secondary w-100" id="signInBtn">تسجيل دخول</button>
                             </div>
 
                             <div class="form-group form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">تذكرني</label>
+                                    <label class="form-check-label" id="remrmberMe" for="exampleCheck1">تذكرني</label>
                             </div>
                             <div class="form-group">
-                                    <a href="#" for="exampleCheck1">نسيت كلمة المرور</a>
+                                    <a href="#" id="forgetPass">نسيت كلمة المرور</a>
                             </div>
                         </form>
 

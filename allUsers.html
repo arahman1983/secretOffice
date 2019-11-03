@@ -62,11 +62,11 @@
         </div>
         <div class="row my-3 px-3 justify-content-lg-start">
             <a href="addUser.html" class="btn btn-dark text-white " id="addUserBtn">
-                <i class="fas fa-plus mr-3"></i> Add user
+                <i class="fas fa-plus mr-3"></i> <span>Add user</span>
             </a>
             <button type="button" data-toggle="modal" data-target="#importUSerModal"
                 class="btn btn-secondary text-white mx-3" id="importUser">
-                <i class="fas fa-file-import"></i> Import users
+                <i class="fas fa-file-import"></i> <span> users </span>
             </button>
         </div>
         <table id="dataTable" class="table table-striped" style="width:100%">
@@ -150,8 +150,8 @@
                 <span id="cancelConfirm">هل متأكد من حذف المستخدم</span>
             </div>
             <div class="modal-footer d-flex justify-content-around">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" id="cancelBtn" data-dismiss="modal">cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDele">Delete</button>
             </div>
         </div>
     </div>
@@ -175,11 +175,11 @@
                     <div class="row my-3 justify-content-center">
 
                         <label class="addCert btn btn-secondary">
-                            <span>Add Cert</span>
+                            <span id="selectCert">Add Cert</span>
                             <input type="file" id="certAdd" class="form-control" accept=".cert" />
                         </label>
-                        <p class="w-100 text-center"><small>يجب أن يكون الملف بامتداد cert</small></p>
-                        <p class="text-danger w-100 text-center d-none validateMess">file is wrong type</p>
+                        <p class="w-100 text-center"><small id="noteCert">يجب أن يكون الملف بامتداد cert</small></p>
+                        <p class="text-danger w-100 text-center d-none validateMess" id="validateMess">file is wrong type</p>
                         <p class="w-100 text-center" id="Uploadedfile"></p>
                         <input type="submit" class="btn btn-success" id="uploadCert" value="Upload cert" />
                     </div>
@@ -206,11 +206,11 @@
                     <div class="row my-3 justify-content-center">
 
                         <label class="addCert btn btn-secondary">
-                            <span>Select file</span>
+                            <span id="selectFile">Select file</span>
                             <input type="file" id="userImport" class="form-control" accept=".xlsx,.xls" />
                         </label>
-                        <p class="w-100 text-center"><small>يجب أن يكون الملف بامتداد xlsx, xls</small></p>
-                        <p class="text-danger w-100 text-center d-none validateMess">file is wrong type</p>
+                        <p class="w-100 text-center"><small id="notexls">يجب أن يكون الملف بامتداد xlsx, xls</small></p>
+                        <p class="text-danger w-100 text-center d-none validateMess" id="validateMessXls">file is wrong type</p>
                         <p class="w-100 text-center" id="importedfile"></p>
                         <input type="submit" class="btn btn-success" id="uploadfile" value="Upload file" />
                     </div>

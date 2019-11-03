@@ -8,6 +8,53 @@
     "addUser" : "إضافة مستخدم",
     "editUser" : "تعديل بيانات مستخدم",
     "userProfile":"بيانات المستخدم",
+    "userroles":"صلاحيات المستخدم",
+    "userData":"بيانات المستخدم",
+    "adminLabel":"أدمن",
+    "userLabel":"مستخدم",
+    "addUserBtn":"أضف مستخدم",
+    "importUser":"استيراد مستخدمين",
+    "cancelBtn":"إلغاء",
+    "userJobLabel":"الوصف الوظيفي",
+    "userPhoneLabel":"التليفون",
+    "userFullNameLabel":"الاسم بالكامل",
+    "userEmailLabel":"البريد الالكتروني",
+    "userNameLabel":"اسم المستخدم",
+    "passWordLabel" : "كلمة المرور",
+    "passWordcoLabel":"تأكيد كلمة المرور",
+    "deleteModalLabel":"تأكيد إيقاف حساب",
+    "cancelConfirm":"هل أنت متأكد من إيقاف الحساب ؟",
+    "certModalLabel":"إضافة شهادة تأمين للمستخدم",
+    "selectCert":"اختيار الملف",
+    "noteCert": "يجب أن يكون الملف بامتداد cert",
+    "validateMess":"ملف غير مناسب",
+    "uploadCert":"رفع الشهادة",
+    "importUSerModalLabel": "استيراد مستخدمين",
+    "notexls":"يجب أن يكون الملف بامتداد xlsx, xls",
+    "uploadfile":"استيراد",
+    "signPageTitle" : "تسجيل دخول",
+    "usernameValidate": "اسم المستخدم مطلوب",
+    "passwordValidate":"كلمة المرور مطلوبة",
+    "remrmberMe": "تذكرني",
+    "forgetPass": "نسيت كلمة المرور",
+    "myFilesTitle":"ملفاتي",
+    "encryptMainBtn":"تشفير ملف",
+    "signMainBtn":"نوقيع ملف",
+    "describLable" : "وصف الملف",
+    "requiredValid":"هذا الحقل إلزامي",
+    "confirmUserId":"جاري التأكد من هوية المستخدم",
+    "confirmUserDone": "تم التأكد من هوية المستخدم",
+    "decryptFiles" : "فك تشفير ملف",
+    "emailLable":"الموجه اليهم الملف",
+    "manyEmails": "يمكن اضافة أكثر من بريد بفاصلة ;",
+    "confirmSentData": "جاري التأكد من البيانات المرسلة",
+    "confirmSentDataDone" : "تم التأكد من البيانات المرسلة",
+    "encrypting": "جاري تشفير الملف",
+    "encryptingDone" : "تم تشفير الملف"
+    
+
+
+    "confirmDele":"تأكيد الايقاف",
     "usersTable" : [
         {"name" : "#"},
         {"name" : "اسم المستخدم"},
@@ -22,7 +69,6 @@
         {"name" : "وصف"},
         {"name" : "نوع"},
         {"name" : "تاريخ"}
-
     ],
     "systemLogs" : [
         {"name" : "#"},
@@ -30,7 +76,6 @@
         {"name" : "الوظيفة"},
         {"name" : "النشاط"},
         {"name" : "تاريخ"}
-
     ],
     "footerLinks":[
         {

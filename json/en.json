@@ -1,27 +1,115 @@
 {
-    "signOut" : "Sign out",
-    "welcome" : "Welcome",
-    "systemLog" : "System log",
-    "users" : "Users",
-    "myFiles" : "My files",
-    "settings" : "Settings",
-    "usersTable" : [
-        {"name" : "#"},
-        {"name" : "User name"},
-        {"name" : "Name"},
-        {"name" : "Roles"},
-        {"name" : "Job Title"},
-        {"name" : "E-maol"}
-
-    ],
-    "footerLinks":[
+    "signOut":"Sign Out",
+    "welcome":"Welcome",
+    "systemLog":"System Log",
+    "users":"Uaers",
+    "myFiles":"My Files",
+    "settings":"Settings",
+    "addUser":"Add User",
+    "editUser":"Edit User",
+    "userProfile":"User Profile",
+    "userroles":"User Roles",
+    "userData":"User Data",
+    "adminLabel":"Admin Panel",
+    "userLabel":"User",
+    "addUserBtn":"Add User",
+    "importUser":"Import User",
+    "cancelBtn":"Cancel",
+    "userJobLabel":"Job Title",
+    "userPhoneLabel":"Phone no.",
+    "userFullNameLabel":"Full Name",
+    "userEmailLabel":"Email",
+    "userNameLabel":"User Name",
+    "passWordLabel":"Password",
+    "passWordcoLabel":"Re-Write password",
+    "deleteModalLabel":"Confirm Deactivation",
+    "cancelConfirm":"Cancel",
+    "certModalLabel":"Add Certificate",
+    "selectCert":"Select File",
+    "noteCert":"Files must be with type (.cert)",
+    "validateMess":"This file is not sutable",
+    "uploadCert":"Upload Certificate",
+    "importUSerModalLabel":"Import users",
+    "notexls":"Files must be with types(xls,xlsx)",
+    "uploadfile":"Import Users",
+    "signPageTitle":"Sign File",
+    "usernameValidate":"User Name is required",
+    "passwordValidate":"Password is required",
+    "remrmberMe":"Rememer Me",
+    "forgetPass":"Forget Password",
+    "myFilesTitle":"My Files",
+    "encryptMainBtn":"Encrypt File",
+    "signMainBtn":"Sign File",
+    "describLable":"File Description",
+    "requiredValid":"This Field is required",
+    "confirmUserId":"Confitming User Identitu",
+    "confirmUserDone":"Confirming Done",
+    "decryptFiles":"Decrypt File",
+    "emailLable":"Emails",
+    "manyEmails":"you can add many mails separated with ;",
+    "confirmSentData":"Confirming sent Data",
+    "confirmSentDataDone":"Sent Data is correct",
+    "encrypting":"File Encrypting",
+    "encryptingDone":"File Encrypted",
+    "confirmDele":"Deactivation Confirm",
+    "usersTable": [
         {
-            "name" : "Help",
-            "link" : "#"
+            "name": "#"
         },
         {
-            "name" : "ُعربي",
-            "link" : "#"
+            "name":"User Name"
+        },
+        {
+            "name":"Full Name"
+        },
+        {
+            "name":"Roles"
+        },
+        {
+            "name":"Job Title"
+        },
+        {
+            "name":"Email"
         }
-    ]
+    ],
+    "filesTable": [
+        {
+            "name":"#"
+        },
+        {
+            "name":"File Name"
+        },
+        {
+            "name":"Description"
+        },
+        {
+            "name":"type"
+        },
+        {
+            "name":"Date"
+        }
+    ],
+    "systemLogs": [
+        {
+            "name":"#"
+        },
+        {
+            "name":"User Name"
+        },
+        {
+            "name":"Job Title"
+        },
+        {
+            "name":"Activity"
+        },
+        {
+            "name":"Date"
+        }
+    ],
+    "footerLinks": 
+        {
+            "name":"ع",
+            "link":"ar"
+        }
+    
 }

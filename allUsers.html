@@ -230,19 +230,35 @@
 <script src="js/datatables.min.js"></script>
 <script>
     $(document).ready(function () {
-        if ($("html").attr("lang") === "en") {
+        let datatableData = []
+        fetch("/fakeData/users.json")
+        .then(res=>res.json())
+        .then(data=>datatableData = data)
+        .then(()=>{
+            if ($("html").attr("lang") === "en") {
             $('#dataTable').DataTable();
         } else {
             $('#dataTable').DataTable(
                 {
-                    "language": {
+                    data: datatableData,
+                    columns:[
+                    {data : "id"},
+                    {data : "username"},
+                    {data : "name"},
+                    {data : "roles"},
+                    {data : "jobTitle"},
+                    {data : "email"},
+                    {data : "action"}
+                    ],
+                    language: {
                         "url": "json/arDataTable.json"
                     }
                 }
             );
         }
 
-
+        })
+  
     });
 
 </script>

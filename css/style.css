@@ -36,7 +36,7 @@ body{
     background-image: linear-gradient(#dedede, #FFF);
 }
 .screens{
-    min-height: 78vh;
+    min-height: 81vh;
 }
 
 .footer-links li {
@@ -76,6 +76,22 @@ body{
 
 .dataTable thead tr{
     background: #D1D3D4;
+}
+
+table.table tbody tr td:last-child{
+    display: flex;
+    justify-content: space-around;
+}
+
+table.table tbody tr td:last-child i {
+    padding: 0 0.5em;
+    margin: 0 0.2em;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+table.table tbody tr td:last-child img {
+    cursor: pointer; 
 }
 
 .actions{
@@ -137,4 +153,8 @@ label.error,label.error2{
 
 #loginForm .form-control{
     border-right: 0px;
+}
+
+.nav-link{
+    cursor: pointer;
 }

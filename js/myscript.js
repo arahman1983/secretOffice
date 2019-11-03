@@ -1,16 +1,23 @@
-let labelDataUrl = "/json/ar.json";
+let labelDataUrl = "json/ar.json";
 
+function changelang(lang){
+    localStorage.setItem("secretLangItem",lang);
+    $("html").attr("lang",lang)    
+    if($("html").attr("lang") === "en"){
+        labelDataUrl = "json/en.json";
+        $("root").css("--direction", "ltr")
+    }else{
+        labelDataUrl = "json/ar.json";
+        $("root").css("--direction", "rtl")
+        document.body.appendChild(document.createElement('script')).src='/ar/messages_ar.min.js';
 
-$( document ).ready(()=>{
-    // --------------------------- lables data ----------------------------------
-if($("html").attr("lang") === "en"){
-    labelDataUrl = "/json/en.json";
-    $("root").css("--direction", "ltr")
-}else{
-    labelDataUrl = "/json/ar.json";
-    $("root").css("--direction", "rtl")
+    }
+    readData()
+    window.location.reload();
 }
 
+
+function readData(){
     fetch(labelDataUrl)
     .then(res=>res.json())
     .then(data=> {
@@ -102,15 +109,33 @@ if($("html").attr("lang") === "en"){
 
         $("myfilesHeader")
         let footerLinks = data.footerLinks;
-        $("#footerLinks").html(
-            footerLinks.map((link) => " <li><a href='"+ link.link +"'>"+ link.name +"</a></li>")
-        )
+        $("#navbarText .navbar-nav").append(
+            `
+            <li class="nav-item "><span class='nav-link' onclick='changelang("${footerLinks.link}")'>${footerLinks.name}</span></li>
+            `           
+            )
+        
        
     }
         )
+}
 
+$( document ).ready(()=>{
+    // --------------------------- lables data ----------------------------------
+let sitLang = localStorage.getItem("secretLangItem");
+$("html").attr("lang",sitLang)
+if($("html").attr("lang") === "en"){
+    labelDataUrl = "/json/en.json";
+    $(":root").css("--direction", "ltr")
+    $("h1,h2,h3,h4,label").css("text-align","left")
+}else{
+    labelDataUrl = "/json/ar.json";
+    $(":root").css("--direction", "rtl")
+    $("h1,h2,h3,h4,label").css("text-align","right")
+    document.body.appendChild(document.createElement('script')).src='/ar/messages_ar.min.js';
+}
 
-
+readData()    
 })
 
 

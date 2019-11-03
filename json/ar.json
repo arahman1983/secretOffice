@@ -50,7 +50,7 @@
     "confirmSentData": "جاري التأكد من البيانات المرسلة",
     "confirmSentDataDone" : "تم التأكد من البيانات المرسلة",
     "encrypting": "جاري تشفير الملف",
-    "encryptingDone" : "تم تشفير الملف"
+    "encryptingDone" : "تم تشفير الملف",
     
 
 
@@ -77,14 +77,11 @@
         {"name" : "النشاط"},
         {"name" : "تاريخ"}
     ],
-    "footerLinks":[
+    "footerLinks":
+        
         {
-            "name" : "المساعدة",
-            "link" : "#"
-        },
-        {
-            "name" : "ُEnglish",
-            "link" : "#"
+            "name" : "En",
+            "link" : "en"
         }
-    ]
+    
 }

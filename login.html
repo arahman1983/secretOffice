@@ -27,7 +27,7 @@
                 <div class="card my-2">
                     <div class="card-body">
                         <h4 class="card-title text-center" id="signPageTitle">تسجيل </h4>
-                        <form id="loginForm" class="mt-5">
+                        <form id="loginForm" class="mt-5" >
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fas fa-user"></i></div>
@@ -98,7 +98,6 @@
     <script src="ar/messages_ar.min.js"></script>
     <script>
         $("#loginForm").submit(function(e){
-            e.preventDefault()
             let userNameLogs = $("#userNameLog").val();
             let passwordLogs = $("#passwordLog").val();
             if(userNameLogs == ""){
@@ -109,11 +108,7 @@
                 $("#passwordLog").parent().siblings("label.error").removeClass("d-none").addClass("d-block")
                 return false
             }
-            $("#userNameLog").parent().siblings("label.error").addClass("d-none").removeClass("d-block");
-            $("#passwordLog").parent().siblings("label.error").removeClass("d-block").addClass("d-none")
-            console.log(userNameLogs);
-            console.log(passwordLogs);
-            window.location = "/index.html"
+        
             
 
         })

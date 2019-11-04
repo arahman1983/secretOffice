@@ -83,6 +83,8 @@ table.table tbody tr td:last-child{
     justify-content: space-around;
 }
 
+
+
 table.table tbody tr td:last-child i {
     padding: 0 0.5em;
     margin: 0 0.2em;
@@ -92,6 +94,16 @@ table.table tbody tr td:last-child i {
 
 table.table tbody tr td:last-child img {
     cursor: pointer; 
+}
+
+
+table.table tbody tr.even{
+    background: rgba(0,0,0,.05)
+}
+
+
+table.table tbody tr.odd{
+    background: #FFF !important;
 }
 
 .actions{

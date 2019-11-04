@@ -52,6 +52,7 @@
     "encrypting":"File Encrypting",
     "encryptingDone":"File Encrypted",
     "confirmDele":"Deactivation Confirm",
+    "saveProfile":"Save Changes",
     "usersTable": [
         {
             "name": "#"

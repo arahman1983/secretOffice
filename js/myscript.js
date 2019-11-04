@@ -86,6 +86,7 @@ function readData(){
         $("#confirmSentDataDone").text(data.confirmSentDataDone)
         $("#encrypting").text(data.encrypting)
         $("#encryptingDone").text(data.encryptingDone)
+        $("#saveProfile").val(data.saveProfile)
 
 
         let tableHead = data.usersTable;
@@ -125,14 +126,14 @@ $( document ).ready(()=>{
 let sitLang = localStorage.getItem("secretLangItem");
 $("html").attr("lang",sitLang)
 if($("html").attr("lang") === "en"){
-    labelDataUrl = "/json/en.json";
+    labelDataUrl = "json/en.json";
     $(":root").css("--direction", "ltr")
     $("h1,h2,h3,h4,label").css("text-align","left")
 }else{
-    labelDataUrl = "/json/ar.json";
+    labelDataUrl = "json/ar.json";
     $(":root").css("--direction", "rtl")
     $("h1,h2,h3,h4,label").css("text-align","right")
-    document.body.appendChild(document.createElement('script')).src='/ar/messages_ar.min.js';
+    document.body.appendChild(document.createElement('script')).src='ar/messages_ar.min.js';
 }
 
 readData()    

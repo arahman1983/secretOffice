@@ -74,25 +74,23 @@
                 <div class="form-group row">
                     <label for="userNameInput" class="col-sm-3 col-form-label" id="userNameLabel">User Name</label>
                     <div class="col-sm-9">
-                        <span id="userName">user Name</span>
+                            <input class="form-control" id="userName" name="userName" disabled/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="passWordInput" class="col-sm-3 col-form-label" id="passWordLabel">Password
-                            <a class="text-info" href="#"><i class="fas fa-edit"></i></a>
                     </label>
                     
                     <div class="col-sm-9">
-                            <span id="passWord">user Name</span>
+                            <input class="form-control" id="passWord" name="passWord" required/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="userEmailInput" class="col-sm-3 col-form-label" id="userEmailLabel">Email
 
-                            <a class="text-info" href="#"><i class="fas fa-edit"></i></a>
                     </label>
                     <div class="col-sm-9">
-                            <span id="userEmail">user Name</span>
+                            <input class="form-control" id="userEmail" name="userEmail" required/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -100,31 +98,23 @@
                         Name
                     </label>
                     <div class="col-sm-9">
-                            <span id="userFullName">user Name</span>
+                            <input class="form-control" id="userFullName" name="userFullName" required/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="userPhoneInput" class="col-sm-3 col-form-label" id="userPhoneLabel">User Phone
-                            <a class="text-info" href="#"><i class="fas fa-edit"></i></a>
                     </label>
                     <div class="col-sm-9">
-                            <span id="userPhone">user Name</span>
+                        <input class="form-control" id="userPhone" name="userFullName" required/>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="userJobInput" class="col-sm-3 col-form-label" id="userJobLabel">User Job Title</label>
-                    <div class="col-sm-9">
-                            <span id="userJob"></span>
-                    </div>
+                
+                <hr />
+                <div class="w-100 d-flex justify-content-around">
+
+                    <input type="submit" id="saveProfile" class="btn btn-info" value="Add user">
+                    <button type="button" class="btn btn-danger" id="cancelBtn" onclick="window.location='allusers.html'">cancel</button>
                 </div>
-                <div class="form-group row">
-                        <label for="userJobInput" class="col-sm-3 col-form-label" id="userRoleLabel">صلاحيات المستخدم</label>
-                        <div class="col-sm-9">
-                            <p id="userRole">
-                                
-                            </p>
-                        </div>
-                    </div>
               
             </form>
         </div>
@@ -171,17 +161,11 @@
                         {"name" : "user"}
                     ]
                 }
-                $("#userName").text(userData.userName);
-                $("#passWord").text(userData.passWord);
-                $("#userEmail").text(userData.userEmail);
-                $("#userFullName").text(userData.userFullName);
-                $("#userPhone").text(userData.userPhone);
-                $("#userJob").text(userData.userJob)
-                let userRoles = userData.userRole;
-
-                userRoles.map((role)=>{
-                    $("#userRole").append("<span class='d-block'>"+role.name+"</span>")
-                })
+                $("#userName").val(userData.userName);
+                $("#passWord").val(userData.passWord);
+                $("#userEmail").val(userData.userEmail);
+                $("#userFullName").val(userData.userFullName);
+                $("#userPhone").val(userData.userPhone);
 
             })
 

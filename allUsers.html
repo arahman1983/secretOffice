@@ -231,12 +231,23 @@
 <script>
     $(document).ready(function () {
         let datatableData = []
-        fetch("/fakeData/users.json")
+        fetch("fakeData/users.json")
         .then(res=>res.json())
         .then(data=>datatableData = data)
         .then(()=>{
             if ($("html").attr("lang") === "en") {
-            $('#dataTable').DataTable();
+            $('#dataTable').DataTable({
+                data: datatableData,
+                    columns:[
+                    {data : "id"},
+                    {data : "username"},
+                    {data : "name"},
+                    {data : "roles"},
+                    {data : "jobTitle"},
+                    {data : "email"},
+                    {data : "action"}
+                    ],
+            });
         } else {
             $('#dataTable').DataTable(
                 {

@@ -148,8 +148,9 @@
         <script src="js/jquery.validate.min.js"></script>
         <script src="ar/messages_ar.min.js"></script>
         <script>
+            let userData;
             $("document").ready(function(){
-                let userData = {
+                userData = {
                     "userName" : "user name",
                     "passWord" : "••••••••",
                     "userEmail" : "user Email",
@@ -166,7 +167,7 @@
             
             $("#saveProfile").click(function(e){
                 e.preventdefault();
-                let userData = {
+                userData = {
                     "userName" : $("#userName").val(),
                     "passWord" : $("#passWord").val(),
                     "userEmail" : $("#userEmail").val(),

@@ -154,12 +154,7 @@
                     "passWord" : "••••••••",
                     "userEmail" : "user Email",
                     "userFullName" : "user Full name",
-                    "userPhone" : "user phone",
-                    "userJob" : "user title",
-                    "userRole" : [
-                        {"name":"admin"},
-                        {"name" : "user"}
-                    ]
+                    "userPhone" : "user phone",                    
                 }
                 $("#userName").val(userData.userName);
                 $("#passWord").val(userData.passWord);
@@ -168,9 +163,20 @@
                 $("#userPhone").val(userData.userPhone);
 
             })
+            
+            $("#saveProfile").click(function(e){
+                e.preventdefault();
+                let userData = {
+                    "userName" : $("#userName").val(),
+                    "passWord" : $("#passWord").val(),
+                    "userEmail" : $("#userEmail").val(),
+                    "userFullName" : $("#userFullName").val(),
+                    "userPhone" : $("#userPhone").val(),   
+                }
+                console.log(userData);
+            })
 
         </script>
-
 </body>
 
 </html>

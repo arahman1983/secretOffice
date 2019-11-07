@@ -170,7 +170,7 @@
         <!-- <script src="ar/messages_ar.min.js"></script> -->
         <script>
             $("#formAddUser").validate();
-            $("#formAddUser").submit(function (e) {
+            $("#addUserBtn").click(function (e) {
                 e.preventDefault();
                 if ($("#passWordInput").val() != $("#passWordCoInput").val()) {
                     $("#formAddUser").validate();
@@ -181,7 +181,6 @@
 
                     return false
                 }
-
                 if ($(this).valid()) {
                     let rolesArr=[] ;
                     $("#roles").find("input:checked").each(function(){
@@ -198,7 +197,6 @@
                         "roles": rolesArr
                     }
                     console.log(userData);
-                    window.location = "/allusers.html"
                 }
 
 

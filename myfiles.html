@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="images/fav.png">
-    <link href="css/reset.css" rel="stylesheet">
-    <link href="ar/bootstrap-4.0.0-rtl-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="fontawesome-free-5.6.3-web/fontawesome-free-5.6.3-web/css/all.min.css" rel="stylesheet"
+    <link rel="icon" href="plugins/images/fav.png">
+    <link href="plugins/css/reset.css" rel="stylesheet">
+    <link href="plugins/ar/bootstrap-4.0.0-rtl-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plugins/fontawesome-free-5.6.3-web/fontawesome-free-5.6.3-web/css/all.min.css" rel="stylesheet"
         type="text/css" />
-    <link href="css/style.css" rel="stylesheet">
+    <link href="plugins/css/style.css" rel="stylesheet">
     <title>Secret Office</title>
     <link href="css/datatables.min.css" rel="stylesheet" />
+    <script src="plugins/js/jquery-3.4.1.min.js"></script>
+<script src="plugins/js/popper.min.js"></script>
 </head>
 
 <body>
@@ -20,7 +22,7 @@
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-gradient">
         <a class="navbar-brand" href="#">
-            <img src="images/logo.png" width="180" />
+            <img src="plugins/images/logo.png" width="180" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +65,7 @@
         <div class="row my-3 px-3 justify-content-start">
             <button class="btn btn-dark text-white" data-toggle="modal" data-target="#encryptFileModal"
                 id="encryptFile">
-                <img src="images/encrypt.png" width="20"><span id="encryptMainBtn"> Encrypt File</span>
+                <img src="plugins/images/encrypt.png" width="20"><span id="encryptMainBtn"> Encrypt File</span>
             </button>
 
             <button type="button" data-toggle="modal" data-target="#signFilesModal" class="btn btn-secondary text-white mx-3"
@@ -101,7 +103,7 @@
                     <td>63</td>
                     <td>2011/07/25</td>
                     <td class="actions">
-                        <img src="images/300-512.png" width="30" data-toggle="modal" data-target="#decryptFileModal" />
+                        <img src="plugins/images/300-512.png" width="30" data-toggle="modal" data-target="#decryptFileModal" />
                     </td>
                 </tr>
 
@@ -118,7 +120,7 @@
                 <div class="col-md-4">
 
                 </div>
-                <div class="col-md-4 text-center">Powerd By <img src="images/TSS_Logo-1.png" width="50"></div>
+                <div class="col-md-4 text-center">Powerd By <img src="plugins/images/TSS_Logo-1.png" width="50"></div>
                 <div class="col-md-4">
                     <ul class="footer-links float-right" id="footerLinks">
                         <!-- <li><a href="#">المساعدة</a></li>
@@ -256,7 +258,7 @@
             <div id="encyends" class="d-none ">
                 <p class="w-100 text-center d-block" id="encryptingDone">تم تشفير الملف</p>
                 <p class="w-100 text-center d-block">
-                    <img src="images/300-512.png" width="50px" />
+                    <img src="plugins/images/300-512.png" width="50px" />
                 </p>
             </div>
         </div>
@@ -266,13 +268,12 @@
 </div>
 
 <!--ends Modal -->
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
-<script src="js/myscript.js"></script>
-<script src="js/datatables.min.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="ar/messages_ar.min.js"></script>
+
+<script src="plugins/ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
+<script src="plugins/js/myscript.js"></script>
+<script src="plugins/js/datatables.min.js"></script>
+<script src="plugins/js/jquery.validate.min.js"></script>
+<script src="plugins/ar/messages_ar.min.js"></script>
 
 <script>
 

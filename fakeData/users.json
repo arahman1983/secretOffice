@@ -1,102 +1,296 @@
 [
-        {
-            "id": 1,
-            "name": "Leanne Graham",
-            "username": "Bret",
-            "email": "Sincere@april.biz",
-            "phone": "1-770-736-8031 x56442",
-            "jobTitle": "hildegard.org",
-            "roles":"admin",
-            "action":" <a href=\"addUser.html\"><i class=\"fas fa-user-edit text-info\"></i></a>                       <i class=\"fas fa-user-times text-danger\" data-toggle=\"modal\" data-target=\"#deleteModal\"></i><i class=\"fas fa-award text-success\" data-toggle=\"modal\" data-target=\"#certModal\"></i>"
-        },
-        {
-            "id": 2,
-            "name": "Ervin Howell",
-            "username": "Antonette",
-            "email": "Shanna@melissa.tv",
-            "phone": "010-692-6593 x09125",
-            "jobTitle": "anastasia.net",
-            "roles":"admin",
-            "action":" <a href=\"addUser.html\"><i class=\"fas fa-user-edit text-info\"></i></a>                       <i class=\"fas fa-user-times text-danger\" data-toggle=\"modal\" data-target=\"#deleteModal\"></i><i class=\"fas fa-award text-success\" data-toggle=\"modal\" data-target=\"#certModal\"></i>"
-        },
-        {
-            "id": 3,
-            "name": "Clementine Bauch",
-            "username": "Samantha",
-            "email": "Nathan@yesenia.net",
-            "phone": "1-463-123-4447",
-            "jobTitle": "ramiro.info",
-            "roles":"admin",
-            "action":" <a href=\"addUser.html\"><i class=\"fas fa-user-edit text-info\"></i></a>                       <i class=\"fas fa-user-times text-danger\" data-toggle=\"modal\" data-target=\"#deleteModal\"></i><i class=\"fas fa-award text-success\" data-toggle=\"modal\" data-target=\"#certModal\"></i>"
-        },
-        {
-            "id": 4,
-            "name": "Patricia Lebsack",
-            "username": "Karianne",
-            "email": "Julianne.OConner@kory.org",
-            "phone": "493-170-9623 x156",
-            "jobTitle": "kale.biz",
-            "roles":"user",
-            "action":" <a href=\"addUser.html\"><i class=\"fas fa-user-edit text-info\"></i></a>                       <i class=\"fas fa-user-times text-danger\" data-toggle=\"modal\" data-target=\"#deleteModal\"></i><i class=\"fas fa-award text-success\" data-toggle=\"modal\" data-target=\"#certModal\"></i>"
-        },
-        {
-            "id": 5,
-            "name": "Chelsey Dietrich",
-            "username": "Kamren",
-            "email": "Lucio_Hettinger@annie.ca",
-            "phone": "(254)954-1289",
-            "jobTitle": "demarco.info",
-            "roles":"admin",
-            "action":" <a href=\"addUser.html\"><i class=\"fas fa-user-edit text-info\"></i></a>                       <i class=\"fas fa-user-times text-danger\" data-toggle=\"modal\" data-target=\"#deleteModal\"></i><i class=\"fas fa-award text-success\" data-toggle=\"modal\" data-target=\"#certModal\"></i>"
-        },
-        {
-            "id": 6,
-            "name": "Mrs. Dennis Schulist",
-            "username": "Leopoldo_Corkery",
-            "email": "Karley_Dach@jasper.info",
-            "phone": "1-477-935-8478 x6430",
-            "jobTitle": "ola.org",
-            "roles":"admin",
-            "action":" <a href=\"addUser.html\"><i class=\"fas fa-user-edit text-info\"></i></a>                       <i class=\"fas fa-user-times text-danger\" data-toggle=\"modal\" data-target=\"#deleteModal\"></i><i class=\"fas fa-award text-success\" data-toggle=\"modal\" data-target=\"#certModal\"></i>"
-        },
-        {
-            "id": 7,
-            "name": "Kurtis Weissnat",
-            "username": "Elwyn.Skiles",
-            "email": "Telly.Hoeger@billy.biz",
-            "phone": "210.067.6132",
-            "jobTitle": "elvis.io",
-            "roles":"user",
-            "action":" <a href=\"addUser.html\"><i class=\"fas fa-user-edit text-info\"></i></a>                       <i class=\"fas fa-user-times text-danger\" data-toggle=\"modal\" data-target=\"#deleteModal\"></i><i class=\"fas fa-award text-success\" data-toggle=\"modal\" data-target=\"#certModal\"></i>"
-        },
-        {
-            "id": 8,
-            "name": "Nicholas Runolfsdottir V",
-            "username": "Maxime_Nienow",
-            "email": "Sherwood@rosamond.me",
-            "phone": "586.493.6943 x140",
-            "jobTitle": "jacynthe.com",
-            "roles":"admin",
-            "action":" <a href=\"addUser.html\"><i class=\"fas fa-user-edit text-info\"></i></a>                       <i class=\"fas fa-user-times text-danger\" data-toggle=\"modal\" data-target=\"#deleteModal\"></i><i class=\"fas fa-award text-success\" data-toggle=\"modal\" data-target=\"#certModal\"></i>"
-        },
-        {
-            "id": 9,
-            "name": "Glenna Reichert",
-            "username": "Delphine",
-            "email": "Chaim_McDermott@dana.io",
-            "phone": "(775)976-6794 x41206",
-            "jobTitle": "conrad.com",
-            "roles":"admin",
-            "action":" <a href=\"addUser.html\"><i class=\"fas fa-user-edit text-info\"></i></a>                       <i class=\"fas fa-user-times text-danger\" data-toggle=\"modal\" data-target=\"#deleteModal\"></i><i class=\"fas fa-award text-success\" data-toggle=\"modal\" data-target=\"#certModal\"></i>"
-        },
-        {
-            "id": 10,
-            "name": "Clementina DuBuque",
-            "username": "Moriah.Stanton",
-            "email": "Rey.Padberg@karina.biz",
-            "phone": "024-648-3804",
-            "jobTitle": "ambrose.net",
-            "roles":"admin",
-            "action":" <a href=\"addUser.html\"><i class=\"fas fa-user-edit text-info\"></i></a>                       <i class=\"fas fa-user-times text-danger\" data-toggle=\"modal\" data-target=\"#deleteModal\"></i><i class=\"fas fa-award text-success\" data-toggle=\"modal\" data-target=\"#certModal\"></i>"
-        }
+    {
+        "id": 1,
+        "createdOnTimeInMilliSecond": 1,
+        "lastModifiedOnTimeInMilliSecond": 1,
+        "email": "a@y.com",
+        "jobTitle": "Dev",
+        "fullName": "Ay Ho",
+        "phone": "012",
+        "userName": "admin",
+        "password": "$2a$12$Fumiuhq5wAQpAsgkGe4ou.qyXZUJdGQaxSjrykBtkaX7OxZdXboyW",
+        "createdBy": "Ayman",
+        "lastModifiedBy": "Ayman",
+        "certificatePath": null,
+        "accessGroupList": [
+            {
+                "id": 2,
+                "createdOnTimeInMilliSecond": 1,
+                "lastModifiedOnTimeInMilliSecond": 2,
+                "name": "Administrator",
+                "createdBy": "Ayman",
+                "lastModifiedBy": "Ayman",
+                "accessRoleList": [
+                    {
+                        "id": 1,
+                        "nameAR": "Add User",
+                        "nameEN": "Add User",
+                        "code": "0101001"
+                    },
+                    {
+                        "id": 2,
+                        "nameAR": "Delete User",
+                        "nameEN": "Delete User",
+                        "code": "0101002"
+                    },
+                    {
+                        "id": 3,
+                        "nameAR": "Show All Users",
+                        "nameEN": "Show All Users",
+                        "code": "0101003"
+                    },
+                    {
+                        "id": 4,
+                        "nameAR": "Edit User",
+                        "nameEN": "Edit User",
+                        "code": "0101004"
+                    },
+                    {
+                        "id": 5,
+                        "nameAR": "My Profile",
+                        "nameEN": "My Profile",
+                        "code": "0101005"
+                    },
+                    {
+                        "id": 7,
+                        "nameAR": "Upload Certificate",
+                        "nameEN": "Upload Certificate",
+                        "code": "0101007"
+                    },
+                    {
+                        "id": 8,
+                        "nameAR": "Show Logs",
+                        "nameEN": "Show Logs",
+                        "code": "0101008"
+                    },
+                    {
+                        "id": 145,
+                        "nameAR": "Show My Files",
+                        "nameEN": "Show My Files",
+                        "code": "0101009"
+                    },
+                    {
+                        "id": 147,
+                        "nameAR": "Show Access Groups",
+                        "nameEN": "Show Access Groups",
+                        "code": "0101010"
+                    },
+                    {
+                        "id": 148,
+                        "nameAR": "Add Access Group",
+                        "nameEN": "Add Access Group",
+                        "code": "0101011"
+                    },
+                    {
+                        "id": 150,
+                        "nameAR": "Edit Access Group",
+                        "nameEN": "Edit Access Group",
+                        "code": "0101012"
+                    },
+                    {
+                        "id": 151,
+                        "nameAR": "Delete Access Group",
+                        "nameEN": "Delete Access Group",
+                        "code": "0101013"
+                    },
+                    {
+                        "id": 152,
+                        "nameAR": "Show Access Roles",
+                        "nameEN": "Show Access Roles",
+                        "code": "0101014"
+                    },
+                    {
+                        "id": 153,
+                        "nameAR": "Add Attachment",
+                        "nameEN": "Add Attachment",
+                        "code": "0101015"
+                    },
+                    {
+                        "id": 154,
+                        "nameAR": "Decrypt Operations",
+                        "nameEN": "Decrypt Operations",
+                        "code": "0101016"
+                    },
+                    {
+                        "id": 155,
+                        "nameAR": "Encrypt Operations",
+                        "nameEN": "Encrypt Operations",
+                        "code": "0101017"
+                    },
+                    {
+                        "id": 156,
+                        "nameAR": "Sign Operations",
+                        "nameEN": "Sign Operations",
+                        "code": "0101018"
+                    }
+                ]
+            }
+        ],
+        "authorities": [],
+        "username": "admin",
+        "isenabled": true,
+        "accountNonExpired": true,
+        "accountNonLocked": true,
+        "credentialsNonExpired": true,
+        "enabled": true
+    },
+    {
+        "id": 2,
+        "createdOnTimeInMilliSecond": 1,
+        "lastModifiedOnTimeInMilliSecond": 1,
+        "email": "ayman@gmail.com",
+        "jobTitle": "Dev",
+        "fullName": "Ay Ra",
+        "phone": "012",
+        "userName": "ayman",
+        "password": "$2a$12$Fumiuhq5wAQpAsgkGe4ou.qyXZUJdGQaxSjrykBtkaX7OxZdXboyW",
+        "createdBy": "admin",
+        "lastModifiedBy": "admin",
+        "certificatePath": "/Users/osama/Documents/TSS/Projects/secretoffice-uploads/cert/2/Payment.pdf",
+        "accessGroupList": [],
+        "authorities": [],
+        "username": "ayman",
+        "isenabled": true,
+        "accountNonExpired": true,
+        "accountNonLocked": true,
+        "credentialsNonExpired": true,
+        "enabled": true
+    },
+    {
+        "id": 10002,
+        "createdOnTimeInMilliSecond": null,
+        "lastModifiedOnTimeInMilliSecond": null,
+        "email": "s@y.com",
+        "jobTitle": "Dev2",
+        "fullName": "s f",
+        "phone": "0123",
+        "userName": "samer",
+        "password": "$2a$12$KDd6f1CPIP46j3HoyZbm4.Etyp0fwUVo0dOfvG0i9j3ik5Yf6IgHi",
+        "createdBy": null,
+        "lastModifiedBy": null,
+        "certificatePath": null,
+        "accessGroupList": [
+            {
+                "id": 2,
+                "createdOnTimeInMilliSecond": 1,
+                "lastModifiedOnTimeInMilliSecond": 2,
+                "name": "Administrator",
+                "createdBy": "Ayman",
+                "lastModifiedBy": "Ayman",
+                "accessRoleList": [
+                    {
+                        "id": 1,
+                        "nameAR": "Add User",
+                        "nameEN": "Add User",
+                        "code": "0101001"
+                    },
+                    {
+                        "id": 2,
+                        "nameAR": "Delete User",
+                        "nameEN": "Delete User",
+                        "code": "0101002"
+                    },
+                    {
+                        "id": 3,
+                        "nameAR": "Show All Users",
+                        "nameEN": "Show All Users",
+                        "code": "0101003"
+                    },
+                    {
+                        "id": 4,
+                        "nameAR": "Edit User",
+                        "nameEN": "Edit User",
+                        "code": "0101004"
+                    },
+                    {
+                        "id": 5,
+                        "nameAR": "My Profile",
+                        "nameEN": "My Profile",
+                        "code": "0101005"
+                    },
+                    {
+                        "id": 7,
+                        "nameAR": "Upload Certificate",
+                        "nameEN": "Upload Certificate",
+                        "code": "0101007"
+                    },
+                    {
+                        "id": 8,
+                        "nameAR": "Show Logs",
+                        "nameEN": "Show Logs",
+                        "code": "0101008"
+                    },
+                    {
+                        "id": 145,
+                        "nameAR": "Show My Files",
+                        "nameEN": "Show My Files",
+                        "code": "0101009"
+                    },
+                    {
+                        "id": 147,
+                        "nameAR": "Show Access Groups",
+                        "nameEN": "Show Access Groups",
+                        "code": "0101010"
+                    },
+                    {
+                        "id": 148,
+                        "nameAR": "Add Access Group",
+                        "nameEN": "Add Access Group",
+                        "code": "0101011"
+                    },
+                    {
+                        "id": 150,
+                        "nameAR": "Edit Access Group",
+                        "nameEN": "Edit Access Group",
+                        "code": "0101012"
+                    },
+                    {
+                        "id": 151,
+                        "nameAR": "Delete Access Group",
+                        "nameEN": "Delete Access Group",
+                        "code": "0101013"
+                    },
+                    {
+                        "id": 152,
+                        "nameAR": "Show Access Roles",
+                        "nameEN": "Show Access Roles",
+                        "code": "0101014"
+                    },
+                    {
+                        "id": 153,
+                        "nameAR": "Add Attachment",
+                        "nameEN": "Add Attachment",
+                        "code": "0101015"
+                    },
+                    {
+                        "id": 154,
+                        "nameAR": "Decrypt Operations",
+                        "nameEN": "Decrypt Operations",
+                        "code": "0101016"
+                    },
+                    {
+                        "id": 155,
+                        "nameAR": "Encrypt Operations",
+                        "nameEN": "Encrypt Operations",
+                        "code": "0101017"
+                    },
+                    {
+                        "id": 156,
+                        "nameAR": "Sign Operations",
+                        "nameEN": "Sign Operations",
+                        "code": "0101018"
+                    }
+                ]
+            }
+        ],
+        "authorities": [],
+        "username": "samer",
+        "isenabled": true,
+        "accountNonExpired": true,
+        "accountNonLocked": true,
+        "credentialsNonExpired": true,
+        "enabled": true
+    }
 ]
+
+

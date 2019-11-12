@@ -1,5 +1,7 @@
 :root{
-    --direction : rtl
+    --direction : rtl;
+    --left : right;
+    --right : left;
 }
 
 @font-face {
@@ -156,6 +158,7 @@ label.error,label.error2{
     background: url(../images/loginbg.png);
     background-repeat: no-repeat;
     background-position-y: center;
+    background-position-x: var(--right);
 }
 
 #loginForm .input-group-text{

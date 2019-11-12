@@ -1,15 +1,20 @@
-let labelDataUrl = "json/ar.json";
+let labelDataUrl = "plugins/json/ar.json";
 
 function changelang(lang){
     localStorage.setItem("secretLangItem",lang);
     $("html").attr("lang",lang)    
     if($("html").attr("lang") === "en"){
-        labelDataUrl = "json/en.json";
-        $("root").css("--direction", "ltr")
+        labelDataUrl = "plugins/json/en.json";
+        $(":root").css("--direction", "ltr")
+        $(":root").css("--left", "left")
+        $(":root").css("--right", "right")
+        $("#arMessages").attr("src",'')
     }else{
-        labelDataUrl = "json/ar.json";
-        $("root").css("--direction", "rtl")
-        document.body.appendChild(document.createElement('script')).src='/ar/messages_ar.min.js';
+        labelDataUrl = "plugins/json/ar.json";
+        $(":root").css("--direction", "rtl")
+        $(":root").css("--left", "right")
+        $(":root").css("--right", "left")
+        $("#arMessages").attr("src",'plugins/ar/messages_ar.min.js')
 
     }
     readData()
@@ -126,14 +131,20 @@ $( document ).ready(()=>{
 let sitLang = localStorage.getItem("secretLangItem");
 $("html").attr("lang",sitLang)
 if($("html").attr("lang") === "en"){
-    labelDataUrl = "json/en.json";
+    labelDataUrl = "plugins/json/en.json";
     $(":root").css("--direction", "ltr")
     $("h1,h2,h3,h4,label").css("text-align","left")
+    $(":root").css("--left", "left")
+    $(":root").css("--right", "right")
+    $("#arMessages").attr("src",'')
+    
 }else{
-    labelDataUrl = "json/ar.json";
+    labelDataUrl = "plugins/json/ar.json";
     $(":root").css("--direction", "rtl")
     $("h1,h2,h3,h4,label").css("text-align","right")
-    document.body.appendChild(document.createElement('script')).src='ar/messages_ar.min.js';
+    $(":root").css("--left", "right")
+    $(":root").css("--right", "left")
+    $("#arMessages").attr("src",'plugins/ar/messages_ar.min.js')
 }
 
 readData()    

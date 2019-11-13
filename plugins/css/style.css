@@ -173,3 +173,35 @@ label.error,label.error2{
 .nav-link{
     cursor: pointer;
 }
+
+
+.feed-back{
+    width: 30vw;
+    padding: 2em;
+    background: #FFF;
+    position: absolute;
+    z-index: 999;
+    top: 33vh;
+    border-radius: 0.5em;
+    box-shadow: grey 0px 0px 10px;
+    left: 33vw;
+    text-align: center;
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.feed-back.opacity{
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.feedback-close{
+    color: var(--dark);
+    position: absolute;
+    color: var(--dark);
+    position: absolute;
+    top: 0.5em;
+    left: 1em;
+    cursor: pointer;
+    padding: 0.5em 1em;
+}

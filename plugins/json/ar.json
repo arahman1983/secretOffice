@@ -51,7 +51,10 @@
     "confirmSentDataDone" : "تم التأكد من البيانات المرسلة",
     "encrypting": "جاري تشفير الملف",
     "encryptingDone" : "تم تشفير الملف",
-    "saveProfile":"حفظ التعديلات",
+    "saveProfile" : "حفظ التعديلات",
+    "resetPassTitle":"طلب تغيير كلمة المرور",
+    "reaetEmail":"بريد الكتدوني صحيح",
+    "resetPassBtn":"ارسال",
 
 
     "confirmDele":"تأكيد الايقاف",

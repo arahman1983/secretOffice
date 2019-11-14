@@ -175,6 +175,19 @@ label.error,label.error2{
 }
 
 
+.modal-header .close{
+    margin: -1rem;
+}
+
+.btn-link,.btn-link:hover{
+    color:var(--secondry);
+    padding: 0px !important
+}
+
+.btn-lang{
+    min-width: 20px !important;
+}
+
 .feed-back{
     width: 30vw;
     padding: 2em;

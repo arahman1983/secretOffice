@@ -139,8 +139,8 @@
     </div>
 </body>
 
-<!-- Modals -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -151,6 +151,7 @@
                 </button>
             </div>
             <div class="modal-body d-flex justify-content-center">
+                <input type="text" hidden id="idUserForDelete" />
                 <span id="cancelConfirm">هل متأكد من حذف المستخدم</span>
             </div>
             <div class="modal-footer d-flex justify-content-around">
@@ -207,8 +208,9 @@
             <div class="modal-body">
 
                 <form>
+                    <input type="text" hidden id="idUserCert" />
                     <div class="row my-3 justify-content-center">
-
+                        <input type="text" hidden id="userId" class="form-control" />
                         <label class="addCert btn btn-secondary">
                             <span id="selectFile">Select file</span>
                             <input type="file" id="userImport" class="form-control" accept=".xlsx,.xls" />
@@ -226,28 +228,34 @@
 
 
 
+
 <!-- scripts -->
 
 <script src="plugins/ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
 <script src="plugins/js/myscript.js"></script>
 <script src="plugins/js/datatables.min.js"></script>
 <script>
+    
     $(document).ready(function () {
-        let datatableData = []
-        let actionsFeild = `
-        <i class="fas fa-user-times text-danger" data-toggle="modal" data-target="#deleteModal"></i>
-        <a href="addUser.html"><i class="fas fa-user-edit text-info"></i></a>
-        <i class="fas fa-award text-success" data-toggle="modal" data-target="#certModal"></i>
-        `
+    readData();
+        
+  let datatableData = []
+        
 
-        //let userPath = "http://localhost:8084/tss-secretoffice/webuser"
-        let userPath = "fakeData/users.json"
+        let userPath = "webuser"
+        //let userPath = "plugins/fakeData/users.json"
 
         fetch(userPath)
         .then(res=>res.json())
-        .then(data=>datatableData = data)
+        .then(data => datatableData = data)
         .then(()=>{
-            datatableData.map(row=>row.actions = actionsFeild);
+            datatableData.map(row=>{
+            let Id = row.id
+            row.actions = 
+            '<i class="fas fa-user-times text-danger deleteUser" data-toggle="modal" data-target="#deleteModal" data-whatever="'+Id+'"></i>\n\
+            <a class="btn btn-link" onclick="goEdit('+Id+')"><i class="fas fa-user-edit text-info"></i></a>\n\n\
+            <i class="fas fa-award text-success" data-toggle="modal" data-target="#certModal" data-whatever="'+Id+'"></i>'
+            });
 
             if ($("html").attr("lang") === "en") {
             $('#dataTable').DataTable({
@@ -274,7 +282,7 @@
                     {data : "actions"},
                     ],
                     language: {
-                        "url": "json/arDataTable.json"
+                        "url": "plugins/json/arDataTable.json"
                     }
                 }
             );
@@ -283,6 +291,33 @@
         })
   
     });
+    
+    function goEdit(id){
+        alert(id);
+    }
+    
+    $("#confirmDele").click(function(){
+        let userIdDeleted = $("#idUserForDelete").val()
+         alert(userIdDeleted);
+    })
+    
+    $('#certModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var recipient = button.data('whatever')
+  var modal = $(this)
+  modal.find('.modal-body #idUserCert').val(recipient)
+})
+
+
+$('#deleteModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) 
+  var recipient = button.data('whatever') 
+  var modal = $(this)
+  modal.find('#userName').text(recipient)
+  modal.find('.modal-body #idUserForDelete').val(recipient)
+})
+   
+   
 
 </script>
 

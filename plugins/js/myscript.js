@@ -17,12 +17,12 @@ function changelang(lang){
         $("#arMessages").attr("src",'plugins/ar/messages_ar.min.js')
 
     }
-    readData()
     window.location.reload();
 }
 
 
 function readData(){
+    
     fetch(labelDataUrl)
     .then(res=>res.json())
     .then(data=> {
@@ -92,9 +92,13 @@ function readData(){
         $("#encrypting").text(data.encrypting)
         $("#encryptingDone").text(data.encryptingDone)
         $("#saveProfile").val(data.saveProfile)
+        $("#resetPassTitle").text(data.resetPassTitle)
+        $("#reaetEmail").attr("placeholder",data.reaetEmail)
+        $("#resetPassBtn").text(data.resetPassBtn)
 
 
-        let tableHead = data.usersTable;
+       let tableHead = data.usersTable;
+        
         for(let i=0; i < tableHead.length; i++){
             let j = i+1
             $("#userTableHead th:nth-child("+j+")").text(tableHead[i].name)
@@ -112,14 +116,18 @@ function readData(){
             $("#systemLogsHeader th:nth-child("+j+")").text(logheaders[i].name)
         }
 
-
-        $("myfilesHeader")
+$("myfilesHeader")
         let footerLinks = data.footerLinks;
-        $("#navbarText .navbar-nav").append(
-            `
-            <li class="nav-item "><span class='nav-link' onclick='changelang("${footerLinks.link}")'>${footerLinks.name}</span></li>
-            `           
-            )
+        $("#btnLang").text(footerLinks.name);
+        $("#btnLang").click(function(){
+            changelang(footerLinks.link)
+        });
+        
+        $("#langBtn").text(footerLinks.name);
+        $("#langBtn").click(function(){
+            changelang(footerLinks.link)
+        });
+       
         
        
     }
@@ -207,3 +215,8 @@ $("#userImport").change(function(e){
         )
     })
 
+
+function redirectLinks(link){
+    $("#screens").html('');
+    $("#screens").load(link);
+}

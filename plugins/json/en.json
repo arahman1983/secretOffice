@@ -32,7 +32,7 @@
     "importUSerModalLabel":"Import users",
     "notexls":"Files must be with types(xls,xlsx)",
     "uploadfile":"Import Users",
-    "signPageTitle":"Sign File",
+    "signPageTitle":"Sign in",
     "usernameValidate":"User Name is required",
     "passwordValidate":"Password is required",
     "remrmberMe":"Rememer Me",
@@ -52,7 +52,10 @@
     "encrypting":"File Encrypting",
     "encryptingDone":"File Encrypted",
     "confirmDele":"Deactivation Confirm",
-    "saveProfile":"Save Changes",
+    "saveProfile" : "Save Profile",
+    "resetPassTitle":"Change Password",
+    "reaetEmail":"Valid Email",
+    "resetPassBtn":"Send",
     "usersTable": [
         {
             "name": "#"
@@ -63,7 +66,7 @@
         {
             "name":"Full Name"
         },
-      
+        
         {
             "name":"Job Title"
         },

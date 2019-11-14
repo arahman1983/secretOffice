@@ -1,136 +1,61 @@
 <!DOCTYPE html>
-<html lang="">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="plugins/images/fav.png">
-    <link href="plugins/css/reset.css" rel="stylesheet">
-    <link href="plugins/ar/bootstrap-4.0.0-rtl-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="plugins/fontawesome-free-5.6.3-web/fontawesome-free-5.6.3-web/css/all.min.css" rel="stylesheet"
-        type="text/css" />
-    <link href="plugins/css/style.css" rel="stylesheet">
-    <title>Secret Office</title>
-    <link href="css/datatables.min.css" rel="stylesheet" />
-    <script src="plugins/js/jquery-3.4.1.min.js"></script>
-<script src="plugins/js/popper.min.js"></script>
-</head>
+<div>
 
-<body>
-
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-gradient">
-        <a class="navbar-brand" href="#">
-            <img src="plugins/images/logo.png" width="180" />
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <div class="w-100 mb-5 ">
+        <h4 class="text-danger text-center" id="myFilesTitle"> ملفاتي</h4>
+    </div>
+    <div class="row my-3 px-3 justify-content-start">
+        <button class="btn btn-dark text-white" data-toggle="modal" data-target="#encryptFileModal" id="encryptFile">
+            <img src="plugins/images/encrypt.png" width="20"><span id="encryptMainBtn"> Encrypt File</span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="profile.html" title="" id="settings"><i class="fas fa-cog"></i></a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="myFiles.html" title="" id="myFiles">
-                        <i class="fas fa-folder-open"></i>
-                        <sup class="badge badge-danger">1</sup>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="allUsers.html"><i class="fas fa-users" title="" id="users"></i></a>
-                </li>
 
-
-                <li class="nav-item ">
-                    <a class="nav-link" href="logsDataTable.html"><i class="fas fa-clipboard-list" title=""
-                            id="systemLog"></i></a>
-                </li>
-            </ul>
-            <span class="navbar-text mx-3">
-                <span id="welcome"></span> <span>محمد أحمد</span>
-            </span>
-            <button class="btn btn-danger btn-sm mx-3" id="signOut">
-                <!-- تسجيل خروج -->
-            </button>
-        </div>
-    </nav>
-    <div class=" container screens py-5" id="screens">
-
-        <div class="w-100 mb-5 ">
-            <h4 class="text-danger text-center" id="myFilesTitle"> ملفاتي</h4>
-        </div>
-        <div class="row my-3 px-3 justify-content-start">
-            <button class="btn btn-dark text-white" data-toggle="modal" data-target="#encryptFileModal"
-                id="encryptFile">
-                <img src="plugins/images/encrypt.png" width="20"><span id="encryptMainBtn"> Encrypt File</span>
-            </button>
-
-            <button type="button" data-toggle="modal" data-target="#signFilesModal" class="btn btn-secondary text-white mx-3"
-                id="signFile">
-                <i class="fas fa-file-signature"></i> <span id="signMainBtn">Sign File</span>
-            </button>
-        </div>
-        <table id="myfiles" class="table table-striped" style="width:100%">
-            <thead>
-                <tr id="myfilesHeader">
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td class="actions">
-                        <i class="fas fa-share-alt text-info"></i>
-                        <a href="#"><i class="fas fa-file-download text-success"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011/07/25</td>
-                    <td class="actions">
-                        <img src="plugins/images/300-512.png" width="30" data-toggle="modal" data-target="#decryptFileModal" />
-                    </td>
-                </tr>
-
-
-            </tbody>
-
-        </table>
+        <button type="button" data-toggle="modal" data-target="#signFilesModal"
+            class="btn btn-secondary text-white mx-3" id="signFile">
+            <i class="fas fa-file-signature"></i> <span id="signMainBtn">Sign File</span>
+        </button>
     </div>
+    <table id="myfiles" class="table table-striped" style="width:100%">
+        <thead>
+            <tr id="myfilesHeader">
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td class="actions">
+                    <i class="fas fa-share-alt text-info"></i>
+                    <a href="#"><i class="fas fa-file-download text-success"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td class="actions">
+                    <img src="plugins/images/300-512.png" width="30" data-toggle="modal"
+                        data-target="#decryptFileModal" />
+                </td>
+            </tr>
 
-    <hr />
-    <div class="container-fluid footer-class">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
 
-                </div>
-                <div class="col-md-4 text-center">Powerd By <img src="plugins/images/TSS_Logo-1.png" width="50"></div>
-                <div class="col-md-4">
-                    <ul class="footer-links float-right" id="footerLinks">
-                        <!-- <li><a href="#">المساعدة</a></li>
-                                <li><a href="#">English</a></li> -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+        </tbody>
+
+    </table>
+</div>
+
 
 <!-- Modals -->
 <!--Sign-->
@@ -182,13 +107,13 @@
             </div>
             <div class="modal-body">
                 <div id="loadingSignDecrypt">
-                    <p class="w-100 text-center d-block confirmUser">جاري  من هوية المستخدم</p>
+                    <p class="w-100 text-center d-block confirmUser">جاري من هوية المستخدم</p>
                     <p class="w-100 text-center d-block">
                         <i class="fas fa-spinner  text-info fa-spin fa-3x"></i>
                     </p>
                 </div>
                 <div id="userConformDecrypt" class="d-none">
-                    <p class="w-100 text-center d-block confirmUserDone">تم التأكد من  المستخدم</p>
+                    <p class="w-100 text-center d-block confirmUserDone">تم التأكد من المستخدم</p>
                     <p class="w-100 text-center d-block">
                         <i class="far fa-check-circle text-info fa-3x"></i>
                     </p>
@@ -216,7 +141,7 @@
 
 
                         <div class="form-group">
-                            <label class="col-form-label w-100" id="emailLable">وصف الملف</label >
+                            <label class="col-form-label w-100" id="emailLable">وصف الملف</label>
                             <input id="emailEncrypt" name="emailEncrypt" class="form-control" type="text" required>
                             <small class="d-block" id="manyEmails">يمكن اضافة أكثر من بريد بفاصلة ;</small>
                             <label class="error2 d-none">هذا الحقل يجب أن يحتوي على ايميلات</label>
@@ -262,37 +187,26 @@
                 </p>
             </div>
         </div>
-
     </div>
 </div>
 </div>
 
 <!--ends Modal -->
-
-<script src="plugins/ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
-<script src="plugins/js/myscript.js"></script>
-<script src="plugins/js/datatables.min.js"></script>
 <script src="plugins/js/jquery.validate.min.js"></script>
-<script src="plugins/ar/messages_ar.min.js"></script>
-
+<script id="arMessages" src="plugins/ar/messages_ar.min.js"></script>
 <script>
-
-
-    $(document).ready(function () {
+        readData()
         if ($("html").attr("lang") === "en") {
             $('#myfiles').DataTable();
         } else {
             $('#myfiles').DataTable(
                 {
                     "language": {
-                        "url": "json/arDataTable.json"
+                        "url": "plugins/json/arDataTable.json"
                     }
                 }
             );
         }
-
-
-    });
 
 
     $(".actions img").click(function () {
@@ -307,7 +221,6 @@
                 $("#userConformDecrypt").addClass("d-none");
             }, 1000)
         }, 1000)
-
     })
 
 

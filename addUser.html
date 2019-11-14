@@ -1,70 +1,6 @@
 <!DOCTYPE html>
-<html lang="">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="images/fav.png">
-    <link href="plugins/css/reset.css" rel="stylesheet">
-    <link href="plugins/ar/bootstrap-4.0.0-rtl-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="plugins/fontawesome-free-5.6.3-web/fontawesome-free-5.6.3-web/css/all.min.css" rel="stylesheet"
-        type="text/css" />
-    <link href="plugins/css/style.css" rel="stylesheet">
-    <title>Secret Office</title>
-
-    <script src="plugins/js/jquery-3.4.1.min.js"></script>
-    <script src="plugins/js/popper.min.js"></script>
-</head>
-
-<body>
-    <!--Header -->
-
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-gradient">
-        <a class="navbar-brand" href="#">
-            <img src="plugins/images/logo.png" width="180" />
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="profile.html" title="" id="settings"><i class="fas fa-cog"></i></a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="myFiles.html" title="" id="myFiles">
-                        <i class="fas fa-folder-open"></i>
-                        <sup class="badge badge-danger">1</sup>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="allUsers.html"><i class="fas fa-users" title="" id="users"></i></a>
-                </li>
-
-
-                <li class="nav-item ">
-                    <a class="nav-link" href="logsDataTable.html"><i class="fas fa-clipboard-list" title=""
-                            id="systemLog"></i></a>
-                </li>
-            </ul>
-            <span class="navbar-text mx-3">
-                <span id="welcome"></span> <span>محمد أحمد</span>
-            </span>
-            <button class="btn btn-danger btn-sm mx-3" id="signOut">
-                <!-- تسجيل خروج -->
-            </button>
-        </div>
-    </nav>
-    <div class=" container screens py-5" id="screens">
-
-
-        <!--Add user Form-->
-
-
-
+<!--Header -->
+    <div>
         <div class="w-100 mb-5 ">
             <h4 class="text-danger text-center" id="addUser"></h4>
         </div>
@@ -138,74 +74,46 @@
                 <div class="w-100 d-flex justify-content-around">
 
                     <input type="submit" id="addUserBtn" class="btn btn-info" value="Add user">
-                    <button type="button" class="btn btn-danger" id="cancelBtn" onclick="window.location='allusers.html'">cancel</button>
+                    <button type="button" class="btn btn-danger" id="cancelBtn"
+                        onclick="window.location = 'allusers.html'">cancel</button>
                 </div>
             </form>
         </div>
 
-        <!---Footer-->
+    </div>
+    <script src="plugins/js/jquery.validate.min.js"></script>
+    <script id="arMessages" src="plugins/ar/messages_ar.min.js"></script>
+    <!-- scripts -->
+    <script>
+        readData()
+        $("#formAddUser").validate();
+        $("#formAddUser").submit(function (e) {
+            e.preventDefault();
+            if ($("#passWordInput").val() != $("#passWordCoInput").val()) {
+                $("#formAddUser").validate();
+                $("#passWordCoInput").parent().find("span").each(function () {
+                    $(this).remove()
+                })
+                $("#passWordCoInput").parent().append("<span class='text-danger d-inline-block'>كلمة المرور غير متطابقة<span>")
+                return false
+            }
+            if ($(this).valid()) {
+                let rolesArr = [];
+                $("#roles").find("input:checked").each(function () {
+                    rolesArr.push({ "name": $(this).val() })
+                })
 
-        <hr />
-        <div class="container-fluid footer-class">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-
-                    </div>
-                    <div class="col-md-4 text-center">Powerd By <img src="plugins/images/TSS_Logo-1.png" width="50"></div>
-                    <div class="col-md-4">
-                        <ul class="footer-links float-right" id="footerLinks">
-                            <!-- <li><a href="#">المساعدة</a></li>
-                                    <li><a href="#">English</a></li> -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- scripts -->
-       
-        <script src="plugins/ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
-        <script src="plugins/js/myscript.js"></script>
-        <script src="plugins/js/jquery.validate.min.js"></script>
-        <script id="arMessages" src="plugins/ar/messages_ar.min.js"></script>
-        <script>
-            $("#formAddUser").validate();
-            $("#addUserBtn").click(function (e) {
-                e.preventDefault();
-                if ($("#passWordInput").val() != $("#passWordCoInput").val()) {
-                    $("#formAddUser").validate();
-                    $("#passWordCoInput").parent().find("span").each(function () {
-                        $(this).remove()
-                    })
-                    $("#passWordCoInput").parent().append("<span class='text-danger d-inline-block'>كلمة المرور غير متطابقة<span>")
-
-                    return false
+                let userData = {
+                    "username": $("#userNameInput").val(),
+                    "password": $("#passWordInput").val(),
+                    "email": $("#userEmailInput").val(),
+                    "fllname": $("#userFullNameInput").val(),
+                    "phone": $("#userPhoneInput").val(),
+                    "job": $("#userJobInput").val(),
+                    "roles": rolesArr
                 }
-                if ($(this).valid()) {
-                    let rolesArr=[] ;
-                    $("#roles").find("input:checked").each(function(){
-                        rolesArr.push({"name": $(this).val()})
-                    })
-                    
-                    let userData = {
-                        "username": $("#userNameInput").val(),
-                        "password": $("#passWordInput").val(),
-                        "email": $("#userEmailInput").val(),
-                        "fllname": $("#userFullNameInput").val(),
-                        "phone": $("#userPhoneInput").val(),
-                        "job": $("#userJobInput").val(),
-                        "roles": rolesArr
-                    }
-                    console.log(userData);
-                }
+                console.log(userData);
+            }
+        })
 
-
-            })
-
-        </script>
-
-</body>
-
-</html>
+    </script>

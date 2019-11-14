@@ -13,53 +13,53 @@
     <link href="plugins/css/style.css" rel="stylesheet">
     <title>Secret Office</title>
     <script src="plugins/js/jquery-3.4.1.min.js"></script>
-    <script src="plugins/js/popper.min.js"></script>    
+    <script src="plugins/js/popper.min.js"></script>
 </head>
 
 <body>
     <!--Header -->
-
-    <!-- Header -->
     <div class=" container logcontainer">
         <div class="row">
             <div class="col-md-4 pt-5">
                 <div class="row">
                     <img src="plugins/images/logos.png" width="200px" class="mx-auto">
                 </div>
-                <div class="card my-2">
+                <div class="card my-3">
                     <div class="card-body">
-                        <h4 class="card-title text-center" id="signPageTitle">تسجيل </h4>
-                        <form id="loginForm" class="mt-5" >
+
+                        <button class="btn btn-link btn-lang" id="btnLang"></button>
+                        <h4 class="card-title text-center" id="signPageTitle">تسجيل</h4>
+                        <form id="loginForm" class="mt-5" action="authenticateUser" method="POST">
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fas fa-user"></i></div>
                                 </div>
-                                <input type="text" id="userNameLog" name="userNameLog" class="form-control" id="inlineFormInputGroup"
-                                    placeholder="Username">
-                                    
+                                <input type="text" id="username" name="username" class="form-control"
+                                    id="inlineFormInputGroup" placeholder="Username">
+
                             </div>
                             <label class='error d-none' id="usernameValidate">userName is required</label>
                             <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="fas fa-lock"></i></div>
-                                    </div>
-                                    <input type="password" id="passwordLog" name="passwordLog" class="form-control" id="inlineFormInputGroup"
-                                        placeholder="password">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-lock"></i></div>
                                 </div>
-                                <label class='error d-none' id="passwordValidate">password is required</label>
+                                <input type="password" id="password" name="password" class="form-control"
+                                    id="inlineFormInputGroup" placeholder="password">
+                            </div>
+                            <label class='error d-none' id="passwordValidate">password is required</label>
 
                             <div class="input-group mb-2">
 
                                 <button type="submit" class="btn btn-secondary w-100" id="signInBtn">تسجيل دخول</button>
                             </div>
-                            <div class="row">
-
-                                <div class=" col-md-6 px-3 form-group form-check">
+                            <div class="row d-flex justify-content-around">
+                                <!--                                <div class="form-group form-check">
                                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                         <label class="form-check-label" id="remrmberMe" for="exampleCheck1">تذكرني</label>
-                                </div>
-                                <div class="col-md-6 px-3 form-group">
-                                        <a href="#" id="forgetPass">نسيت كلمة المرور</a>
+                                </div>-->
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-link" id="forgetPass" data-toggle="modal"
+                                        data-target="#forgetPassModal">نسيت كلمة المرور</button>
                                 </div>
                             </div>
                         </form>
@@ -84,38 +84,108 @@
                 <div class="col-md-4 text-center">Powerd By <img src="plugins/images/TSS_Logo-1.png" width="50"></div>
                 <div class="col-md-4">
                     <ul class="footer-links float-right" id="footerLinks">
-                        <!-- <li><a href="#">المساعدة</a></li>
-                                    <li><a href="#">English</a></li> -->
+                        <!-- <li><a href="#">????????</a></li>
+                                        <li><a href="#">English</a></li> -->
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
+    <!--Decrypt-->
+    <div class="modal fade" id="forgetPassModal" tabindex="-1" role="dialog" aria-labelledby="decryptFiles"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-info" id="resetPassTitle">Decrypt a File</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group col-md-10 mx-auto text-center">
+                        <input name="reaetEmail" id="reaetEmail" type="email" class="form-control" />
+
+
+                        <button class="btn btn-secondary my-3 mx-auto" id="resetPassBtn">zxsd</button>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+  
 
     <!-- scripts -->
 
     <script src="plugins/ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
     <script src="plugins/js/myscript.js"></script>
     <script src="plugins/js/jquery.validate.min.js"></script>
-    <script src="plugins/ar/messages_ar.min.js"></script>
+    
+    <!-- scripts -->
+    <script src="plugins/js/jquery-3.4.1.min.js"></script>
+    <script src="plugins/js/popper.min.js"></script>
+    <script src="plugins/ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
+    <script src="plugins/js/myscript.js"></script>
+    <script id="arMessages" src="plugins/ar/messages_ar.min.js"></script>
     <script>
-        $("#loginForm").submit(function(e){
-            let userNameLogs = $("#userNameLog").val();
-            let passwordLogs = $("#passwordLog").val();
-            if(userNameLogs == ""){
-                $("#userNameLog").parent().siblings("label.error").removeClass("d-none").addClass("d-block")
-                return false
-            }
-            if(userNameLogs == ""){
-                $("#passwordLog").parent().siblings("label.error").removeClass("d-none").addClass("d-block")
-                return false
-            }
         
-            
-
+        readData()
+        $("#loginForm").submit(function (e) {
+            //            e.preventDefault()
+            let userNameLogs = $("#username").val();
+            let passwordLogs = $("#password").val();
+            if (userNameLogs == "") {
+                $("#username").parent().siblings("label.error").removeClass("d-none").addClass("d-block")
+                return false
+            }
+            if (userNameLogs == "") {
+                $("#password").parent().siblings("label.error").removeClass("d-none").addClass("d-block")
+                return false
+            }
+            $("#username").parent().siblings("label.error").addClass("d-none").removeClass("d-block");
+            $("#password").parent().siblings("label.error").removeClass("d-block").addClass("d-none")
+            //            console.log(userNameLogs);
+            //            console.log(passwordLogs);
+            //            //window.location = "/index.html"
+            //            
+            //
         })
+        $("#resetPassBtn").click(function (e) {
+            e.preventDefault();
+            if ($("#reaetEmail").val() !== "") {
+                /*
+                 fetch("profile/resetmypassword-request.go?email="+$("#reaetEmail").val(),{
+                     headers:{
+                         "Accept" : "text/json"
+                     },
+                     method : "GET"
+                 })
+                         .then(res => res.json())
+                         .then(data => console.log(data))
+                         .catch(err=>console.log(err))
+                 */
+                $.ajax({
+                    url: "profile/resetmypassword-request.go?email=" + $("#reaetEmail").val(),
+                    type: "GET",
+                    dataType: 'json',
+                    success: function (result) {
+                        var status = result.status;
+                        alert(status);
+                    }, error: function (result) {
 
+                    }
+                });
+
+            }
+        })
     </script>
 
 </body>

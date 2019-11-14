@@ -14,46 +14,60 @@
     <title>Secret Office</title>
     <script src="plugins/js/jquery-3.4.1.min.js"></script>
     <script src="plugins/js/popper.min.js"></script>
+    <script src="plugins/ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
+    <script src="plugins/js/datatables.min.js"></script>
+    <script src="plugins/js/myscript.js"></script>
+    
+
 </head>
 
 <body>
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-gradient">
-        <a class="navbar-brand" href="#">
-            <img src="images/logo.png" width="180" />
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="profile.html" title="" id="settings"><i class="fas fa-cog"></i></a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="myFiles.html"  title="" id="myFiles">
-                        <i class="fas fa-folder-open"></i>
-                        <sup class="badge badge-danger">1</sup>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="allUsers.html"><i class="fas fa-users" title="" id="users"></i></a>
-                </li>
-
-
-                <li class="nav-item ">
-                    <a class="nav-link" href="logsDataTable.html"><i class="fas fa-clipboard-list" title="" id="systemLog"></i></a>
-                </li>
-            </ul>
-            <span class="navbar-text mx-3">
-                <span id="welcome"></span> <span>محمد أحمد</span>
-            </span>
-            <button class="btn btn-danger btn-sm mx-3" id="signOut">
-                <!-- تسجيل خروج -->
+            <a class="navbar-brand" onclick="redirectLinks('goHome.go')">
+                <img src="plugins/images/logo.png" width="180" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
-    </nav>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <!-- <span class="nav-link" onclick="redirectLinks('gotoMyProfile.go')" title="" id="settings"><i class="fas fa-cog"></i></span> -->
+                        <span class="nav-link" onclick="redirectLinks('profile.html')" title="" id="settings"><i class="fas fa-cog"></i></span>
+                    </li>
+                    <li class="nav-item ">
+                        <!-- <span class="nav-link" onclick="redirectLinks('gotoMyFiles.go')"   title="" id="myFiles"> -->
+                                <span class="nav-link" onclick="redirectLinks('myfiles.html')"   title="" id="myFiles">
+
+                            <i class="fas fa-folder-open"></i>
+                            <sup class="badge badge-danger">1</sup>
+                        </span>
+                    </li>
+                    <li class="nav-item ">
+                        <span class="nav-link" onclick="redirectLinks('allusers.html')"><i class="fas fa-users" title="" id="users"></i></span>
+                        <!-- <span class="nav-link" onclick="redirectLinks('gotoAllUsers.go')"><i class="fas fa-users" title="" id="users"></i></span> -->
+                    </li>
+    
+    
+                    <li class="nav-item ">
+                        <!-- <span class="nav-link" onclick="redirectLinks('gotoLogs.go')"><i class="fas fa-clipboard-list" title="" id="systemLog"></i></span> -->
+                        <span class="nav-link" onclick="redirectLinks('logsDataTable.html')"><i class="fas fa-clipboard-list" title="" id="systemLog"></i></span>
+                    </li>
+                    
+                    <li class="nav-item ">
+                        <span class="nav-link" id="langBtn" ></span>
+                    </li>
+                </ul>
+                <span class="navbar-text mx-3">
+                    <span id="welcome"></span> <span><%=webuser.getUserName()%></span>
+                </span>
+                <button onclick="window.location = '${pageContext.request.contextPath}/logout.go'" class="btn btn-danger btn-sm mx-3" id="signOut">
+                    <!-- تسجيل خروج -->
+                </button>
+            </div>
+        </nav>
     <!-- Body -->
     <div class=" container screens py-5" id="screens">
 
@@ -67,7 +81,7 @@
                 <div class="col-md-4">
                     
                 </div>
-                <div class="col-md-4 text-center">Powerd By <img src="images/TSS_Logo-1.png" width="50"></div>
+                <div class="col-md-4 text-center">Powerd By <img src="plugins/images/TSS_Logo-1.png" width="50"></div>
                 <div class="col-md-4">
                         <ul class="footer-links float-right" id="footerLinks">
                                 <!-- <li><a href="#">المساعدة</a></li>
@@ -89,8 +103,7 @@
 
     <!-- Script -->
     
-    <script src="plugins/ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
-    <script src="plugins/js/myscript.js"></script>
+    
 
     <script>
         function showMessage(isTrue,message){
@@ -125,14 +138,14 @@
         }
 
         let userRole = "admin";
-        // $('document').ready(function(){
-        //     if(userRole === "admin"){
-        //         window.location = '/logsDataTable.html'
-        //     }else{
-        //         window.location = '/myFiles.html'
-        //     }
+        $('document').ready(function(){
+            if(userRole === "admin"){
+                redirectLinks('/logsDataTable.html') 
+            }else{
+                redirectLinks('/myFiles.html') 
+            }
             
-        // })
+        })
     
     </script>
 </body>

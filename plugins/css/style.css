@@ -147,7 +147,7 @@ label.error,label.error2{
 }
 
 .logcontainer{
-    min-height: 89vh;
+    min-height: 95vh;
 }
 
 .card{
@@ -217,4 +217,17 @@ label.error,label.error2{
     left: 1em;
     cursor: pointer;
     padding: 0.5em 1em;
+}
+
+
+.dataTables_filter input{
+    margin: 0;
+}
+
+.dataTables_length select{
+    margin: 0;
+}
+
+.col-form-label{
+    text-align: var(--left);
 }

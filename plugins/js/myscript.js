@@ -17,7 +17,7 @@ function changelang(lang){
         $("#arMessages").attr("src",'plugins/ar/messages_ar.min.js')
 
     }
-    window.location.reload();
+    readData();
 }
 
 
@@ -220,3 +220,4 @@ function redirectLinks(link){
     $("#screens").html('');
     $("#screens").load(link);
 }
+

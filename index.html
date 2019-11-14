@@ -91,13 +91,12 @@
             </div>
         </div>
     </div>
-
-
+    
     <div class="feed-back opacity" id="feedBack">
-        <span class="feedback-close" onclick="hideMessage()">x</span>
-        <i id="feedBackIcon" class=" fa-3x"></i>
-        <p>رسالة</p>
-    </div>
+            <i id="feedBackIcon" class=" fa-3x"></i>
+            <p>رسالة</p>
+            <button class="btn btn-danger mx-auto" onclick="hideMessage()"> OK </button>
+        </div>
 
     
 
@@ -106,32 +105,7 @@
     
 
     <script>
-        function showMessage(isTrue,message){
-            $("#feedBack").removeClass("opacity");
-            if(isTrue){
-                $("#feedBack i").addClass("far fa-check-circle text-info").removeClass(("fas fa-exclamation-triangle text-danger"))
-                $("#feedBack p").addClass("text-info").removeClass("text-danger")
-                $("#feedBack p").text(message)
-            }else{
-                $("#feedBack i").addClass("fas fa-exclamation-triangle text-danger").removeClass("far fa-check-circle text-info")
-                $("#feedBack p").addClass("text-danger").removeClass("text-info")
-                $("#feedBack p").text(message)
-            }
-        }
-
-        function hideMessage(){
-            $("#feedBack").addClass("opacity");
-        }
-
-        $(document).mouseup(function(e) 
-            {
-                var container = $("#feedBack");
-
-                if (!container.is(e.target) && container.has(e.target).length === 0) 
-                {
-                    hideMessage()
-                }
-            });
+        
 
         function loadPages(page){
             $('#screens').load(page);

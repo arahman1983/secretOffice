@@ -2,6 +2,8 @@
     --direction : rtl;
     --left : right;
     --right : left;
+    --border-left : border-left;
+    --border-right : border-right
 }
 
 @font-face {
@@ -163,12 +165,8 @@ label.error,label.error2{
 
 #loginForm .input-group-text{
     background: transparent;
-    border-left: 0px;
 }
 
-#loginForm .form-control{
-    border-right: 0px;
-}
 
 .nav-link{
     cursor: pointer;
@@ -208,16 +206,7 @@ label.error,label.error2{
     transition: all 0.5s;
 }
 
-.feedback-close{
-    color: var(--dark);
-    position: absolute;
-    color: var(--dark);
-    position: absolute;
-    top: 0.5em;
-    left: 1em;
-    cursor: pointer;
-    padding: 0.5em 1em;
-}
+
 
 
 .dataTables_filter input{

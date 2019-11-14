@@ -55,7 +55,7 @@
     "resetPassTitle":"طلب تغيير كلمة المرور",
     "reaetEmail":"بريد الكتدوني صحيح",
     "resetPassBtn":"ارسال",
-
+    "userOrPassword":"كلمة المرور أو اسم المستخدم غير صحيحة",
 
     "confirmDele":"تأكيد الايقاف",
     "usersTable" : [

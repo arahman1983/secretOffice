@@ -56,6 +56,7 @@
     "resetPassTitle":"Change Password",
     "reaetEmail":"Valid Email",
     "resetPassBtn":"Send",
+    "userOrPassword":"Username or password are not true",
     "usersTable": [
         {
             "name": "#"

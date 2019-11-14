@@ -29,6 +29,7 @@
 
                         <button class="btn btn-link btn-lang" id="btnLang"></button>
                         <h4 class="card-title text-center" id="signPageTitle">تسجيل</h4>
+                        <label class='error d-none w-100 text-center' id="userOrPassword">password is required</label>
                         <form id="loginForm" class="mt-5" action="authenticateUser" method="POST">
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
@@ -104,16 +105,16 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
+                    <form id="resetPassForm">
                     <div class="form-group col-md-10 mx-auto text-center">
-                        <input name="reaetEmail" id="reaetEmail" type="email" class="form-control" />
-
-
-                        <button class="btn btn-secondary my-3 mx-auto" id="resetPassBtn">zxsd</button>
+                   
+                        <input name="reaetEmail" id="reaetEmail" type="email" class="form-control" required />
 
                     </div>
-
-
+                    <div class="row">
+                    <button type="submit" class="btn btn-secondary my-3 mx-auto" id="resetPassBtn">zxsd</button>
+                </div>
+                </form>
 
                 </div>
 
@@ -122,24 +123,41 @@
     </div>
 
   
+    
+    <div class="feed-back opacity" id="feedBack">
+            <i id="feedBackIcon" class=" fa-3x"></i>
+            <p>رسالة</p>
+            <button class="btn btn-danger mx-auto" onclick="hideMessage()"> OK </button>
+        </div>
 
     <!-- scripts -->
-
-    <script src="plugins/ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
-    <script src="plugins/js/myscript.js"></script>
-    <script src="plugins/js/jquery.validate.min.js"></script>
+    
     
     <!-- scripts -->
     <script src="plugins/js/jquery-3.4.1.min.js"></script>
     <script src="plugins/js/popper.min.js"></script>
     <script src="plugins/ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
     <script src="plugins/js/myscript.js"></script>
+    <script src="plugins/js/jquery.validate.min.js"></script>
     <script id="arMessages" src="plugins/ar/messages_ar.min.js"></script>
     <script>
-        
+        $(document).ready(function(){
+            readData()
+        })
         readData()
+        
+
+        $("#username").change(function(){
+            $("#username").parent().siblings("label.error").addClass("d-none").removeClass("d-block");
+        })
+
+        $("#password").change(function(){
+            $("#password").parent().siblings("label.error").addClass("d-none").removeClass("d-block");
+        })
+
+
         $("#loginForm").submit(function (e) {
-            //            e.preventDefault()
+            // e.preventDefault()
             let userNameLogs = $("#username").val();
             let passwordLogs = $("#password").val();
             if (userNameLogs == "") {
@@ -152,38 +170,41 @@
             }
             $("#username").parent().siblings("label.error").addClass("d-none").removeClass("d-block");
             $("#password").parent().siblings("label.error").removeClass("d-block").addClass("d-none")
-            //            console.log(userNameLogs);
-            //            console.log(passwordLogs);
-            //            //window.location = "/index.html"
-            //            
-            //
+
+            if(userNameLogs !== "admin" && passwordLogs !=="admin"){
+                $("#userOrPassword").removeClass("d-none")
+                return false
+            }else{
+                $("#userOrPassword").addClass("d-none")
+                return true
+            }
+            
         })
-        $("#resetPassBtn").click(function (e) {
-            e.preventDefault();
-            if ($("#reaetEmail").val() !== "") {
-                /*
-                 fetch("profile/resetmypassword-request.go?email="+$("#reaetEmail").val(),{
-                     headers:{
-                         "Accept" : "text/json"
-                     },
-                     method : "GET"
-                 })
-                         .then(res => res.json())
-                         .then(data => console.log(data))
-                         .catch(err=>console.log(err))
-                 */
+
+       
+        $("#resetPassForm").validate();
+        $("#resetPassForm").submit(function (e) {
+            e.preventDefault()
+            if ($("#resetPassForm").valid()) {
                 $.ajax({
                     url: "profile/resetmypassword-request.go?email=" + $("#reaetEmail").val(),
                     type: "GET",
                     dataType: 'json',
                     success: function (result) {
                         var status = result.status;
-                        alert(status);
+                        $('#forgetPassModal').modal('toggle');
+                        //showMessage(false,"تعذر الوصول للموقع")
                     }, error: function (result) {
-
+                        var status = result.status;
+                        $('#forgetPassModal').modal('toggle');
+                        if (status == 404){
+                            showMessage(false,"تعذر الوصول للموقع")
+                        }
                     }
                 });
 
+            }else{
+                return false
             }
         })
     </script>

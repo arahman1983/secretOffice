@@ -95,6 +95,7 @@ function readData(){
         $("#resetPassTitle").text(data.resetPassTitle)
         $("#reaetEmail").attr("placeholder",data.reaetEmail)
         $("#resetPassBtn").text(data.resetPassBtn)
+        $("#userOrPassword").text(data.userOrPassword)
 
 
        let tableHead = data.usersTable;
@@ -221,3 +222,31 @@ function redirectLinks(link){
     $("#screens").load(link);
 }
 
+
+
+function showMessage(isTrue,message){
+    $("#feedBack").removeClass("opacity");
+    if(isTrue){
+        $("#feedBack i").addClass("far fa-check-circle text-info").removeClass(("fas fa-exclamation-triangle text-danger"))
+        $("#feedBack p").addClass("text-info").removeClass("text-danger")
+        $("#feedBack p").text(message)
+    }else{
+        $("#feedBack i").addClass("fas fa-exclamation-triangle text-danger").removeClass("far fa-check-circle text-info")
+        $("#feedBack p").addClass("text-danger").removeClass("text-info")
+        $("#feedBack p").text(message)
+    }
+}
+
+function hideMessage(){
+    $("#feedBack").addClass("opacity");
+}
+
+$(document).mouseup(function(e) 
+    {
+        var container = $("#feedBack");
+
+        if (!container.is(e.target) && container.has(e.target).length === 0) 
+        {
+            hideMessage()
+        }
+    });

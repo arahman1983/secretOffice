@@ -193,7 +193,7 @@
                     success: function (result) {
                         var status = result.status;
                         $('#forgetPassModal').modal('toggle');
-                        //showMessage(false,"تعذر الوصول للموقع")
+                        showMessage(status,result.message)
                     }, error: function (result) {
                         var status = result.status;
                         $('#forgetPassModal').modal('toggle');

@@ -68,7 +68,6 @@
         
         <script>
             let userData;
-            $("document").ready(function(){
                 readData()   
                 userData = {
                     "userName" : "user name",
@@ -81,7 +80,6 @@
                 $("#userEmail").val("${webuser.email}");
                 $("#userFullName").val("${webuser.fullName}");
                 $("#userPhone").val("${webuser.phone}");
-            })
             
             $("#saveProfile").click(function(e){
                 e.preventdefault();

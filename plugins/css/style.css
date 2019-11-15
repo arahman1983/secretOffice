@@ -191,21 +191,31 @@ label.error,label.error2{
     padding: 2em;
     background: #FFF;
     position: absolute;
-    z-index: 999;
+    z-index: 9999999;
     top: 33vh;
     border-radius: 0.5em;
     box-shadow: grey 0px 0px 10px;
     left: 33vw;
     text-align: center;
     opacity: 1;
+    overflow: hidden;
     transition: all 0.5s;
 }
 
 .feed-back.opacity{
     opacity: 0;
     transition: all 0.5s;
+    width: 0px;
+    height: 0px;
+    top: 50vh;
+    left: 50vw;
+    overflow: hidden;
+
 }
 
+.feed-back.opacity html{
+    display: none;
+}
 
 
 

@@ -63,7 +63,7 @@
                     </div>
                     <div class="form-check form-check-inline col-md-6">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="inlineCheckbox1"
-                            value="user">
+                            value="user" >
                         <label class="form-check-label" for="inlineCheckbox2" id="userLabel">user</label>
                     </div>
                 </div>
@@ -112,6 +112,33 @@
                     "job": $("#userJobInput").val(),
                     "roles": rolesArr
                 }
+
+                $.ajax({
+                    url: "webuser/",
+                    type: "POST",
+                    dataType: 'json',
+                    data:userData,
+                    success: function (result) {
+                        var status = result.status;
+                        setTimeout(function(){
+                            showMessage(status,result.message)
+                            $("#userNameInput").val("")
+                    $("#passWordInput").val("")
+                    $("#userEmailInput").val("")
+                    $("#userFullNameInput").val("")
+                    $("#userPhoneInput").val("")
+                    $("#userJobInput").val("")
+                        },100)
+                        
+                    }, error: function (result) {
+                        var status = result.status;
+                        setTimeout(function(){
+                       
+                            showMessage(false, status)
+                       
+                    },100)
+                    }
+                });
                 console.log(userData);
             }
         })

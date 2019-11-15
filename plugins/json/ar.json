@@ -26,7 +26,7 @@
     "cancelConfirm":"هل أنت متأكد من إيقاف الحساب ؟",
     "certModalLabel":"إضافة شهادة تأمين للمستخدم",
     "selectCert":"اختيار الملف",
-    "noteCert": "يجب أن يكون الملف بامتداد cert",
+    "noteCert": "يجب أن يكون الملف بامتداد cert, crt",
     "validateMess":"ملف غير مناسب",
     "uploadCert":"رفع الشهادة",
     "importUSerModalLabel": "استيراد مستخدمين",
@@ -57,27 +57,31 @@
     "reaetEmail":"بريد الكتدوني صحيح",
     "resetPassBtn":"ارسال",
     "userOrPassword":"كلمة المرور أو اسم المستخدم غير صحيحة",
+    "curPassError": "كلمة المرور الحالية غير صحيحة",
+    "newPassError": "هذا الحقل يجب أن يتطابق مع كلمة المرور الجديدة",
+    "changePassTitle" : "تغيير كلمة المرور",
+    "currPass":"كلمة المرور الحالية",
+    "newPass":"كلمة المرور الجديدة",
+    "confirmNewPass":"تأكيد كلمة المرور الجديدة",
+    "saveNewPassword":"تغيير كلمة المرور",
 
     "confirmDele":"تأكيد الايقاف",
     "usersTable" : [
-        {"name" : "#"},
         {"name" : "اسم المستخدم"},
         {"name" : "الاسم"},
         {"name" : "الوظيفة"},
         {"name" : "البريد"}
     ],
     "filesTable" : [
-        {"name" : "#"},
         {"name" : "اسم الملف"},
         {"name" : "وصف"},
         {"name" : "نوع"},
         {"name" : "تاريخ"}
     ],
     "systemLogs" : [
-        {"name" : "#"},
-        {"name" : "اسم المستخدم"},
-        {"name" : "الوظيفة"},
+        {"name" : "اسم الملف"},
         {"name" : "النشاط"},
+        {"name" : "الحالة"},
         {"name" : "تاريخ"}
     ],
     "footerLinks":

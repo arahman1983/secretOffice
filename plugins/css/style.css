@@ -234,3 +234,7 @@ label.error,label.error2{
 .dataTables_length{
     text-align: var(--left);
 }
+
+#logdataTable td{
+    text-align: center;
+}

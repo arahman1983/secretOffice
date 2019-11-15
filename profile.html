@@ -24,14 +24,10 @@
                             <input class="form-control" id="userName" name="userName" disabled/>
                     </div>
                 </div>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                     <label for="passWordInput" class="col-sm-3 col-form-label" id="passWordLabel">Password
-                    </label>
-                    
-                    <div class="col-sm-9">
-                           <span data-toggle="modal" data-target="#changePass" class="btn btn-link" id="changePass"></span>
-                    </div>
-                </div>
+                    </label> 
+                </div> -->
                 <div class="form-group row">
                     <label for="userEmailInput" class="col-sm-3 col-form-label" id="userEmailLabel">Email
 
@@ -61,15 +57,14 @@
 
                     <input type="button" id="saveProfile" class="btn btn-info" value="Add user">
                     <!-- <button type="button" class="btn btn-danger" id="cancelBtn" onclick="redirectLinks('gotoAllUsers.go')">cancel</button> -->
-                    <button type="button" class="btn btn-danger" id="cancelBtn" onclick="redirectLinks('allusers.html')">cancel</button>
-
+<button type="button" data-toggle="modal" data-target="#changePassModal" class="btn btn-link" id="changePass"></button>
                 </div>
               
             </form>
         </div>
 
 
-        <div class="modal fade" id="changePass" tabindex="-1" role="dialog" aria-labelledby="changePassTitle" aria-hidden="true">
+        <div class="modal fade" id="changePassModal" tabindex="-1" role="dialog" aria-labelledby="changePassTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -81,20 +76,23 @@
                 <div class="modal-body">
                     <form id="changePassForm">
                         <div class="form-group">
-                            <input type="password" id="currPass" name="currPass" placeholder="Current Password" required />
+                            <input type="password" class="form-control" id="currPass" name="currPass" placeholder="Current Password" required />
+                            <label class="error2 d-none" id="curPassError"></label>
                         </div>
                         <div class="form-group">
-                                <input type="password" id="newPass" name="newPass" placeholder="New Password" required />
-                            </div>
-                            <div class="form-group">
-                                    <input type="password" id="confirmNewPass" name="confirmNewPass" placeholder="Confirm New Password" required />
-                                </div>
-                </form>
+                            <input type="password" class="form-control" id="newPass" name="newPass" placeholder="New Password" required />
+                            
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="confirmNewPass" name="confirmNewPass" placeholder="Confirm New Password" required />
+                            <label class="error2 d-none" id="newPassError"></label>
+                        </div>
+                        <div class="row">
+                            <button type="submit" id="saveNewPassword" class="btn btn-secondary mx-auto">Save changes</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -105,54 +103,28 @@
         <script id="arMessages" src="plugins/ar/messages_ar.min.js"></script>
         
         <script>
+            //========= Read data depending on language ====================
              readData() 
-            let userData;
-            // $.ajax({
-            //         url: "webuser/"+userId,
-            //         type: "GET",
-            //         dataType: 'json',
-            //         data:userData,
-            //         success: function (result) {
-            //             var status = result.status;
-            //             userData = result.data
-                        
-            //         }, error: function (result) {
-            //             var status = result.status;
-            //             setTimeout(function(){
-                       
-            //                 showMessage(false, status)
-                       
-            //         },100)
-            //         }
-            //     });
-                // userData = {
-                //     "id": 1,
-                //     "email": "a@y.com",
-                //     "jobTitle": "Dev",
-                //     "fullName": "Ay Ho",
-                //     "phone": "012",
-                //     "userName": "admin",
-               
-                // }
 
+            //================= Read user data =-===================
                 $("#userName").val("${webuser.username}");
                 $("#userEmail").val("${webuser.email}");
                 $("#userFullName").val("${webuser.fullName}");
                 $("#userPhone").val("${webuser.phone}");
 
 
+            //================= update user data ====================
+            var userData;
             $("#formAddUser").validate();
-            
             $("#saveProfile").click(function(e){
                 e.preventDefault()
                 if($("#formAddUser").valid()){
                     userData = {
                     "userName" : $("#userName").val(),
-                    "userEmail" : $("#userEmail").val(),
-                    "userFullName" : $("#userFullName").val(),
-                    "userPhone" : $("#userPhone").val(),   
+                    "email" : $("#userEmail").val(),
+                    "fullName" : $("#userFullName").val(),
+                    "phone" : $("#userPhone").val(),   
                     }
-
                     $.ajax({
                     url: "webuser/"+userId,
                     type: "PUT",
@@ -171,15 +143,64 @@
                     },100)
                     }
                 });
-
-
-
                 console.log(userData);
-                }else{
+                } else {
                     return false
                 }
-                
             })
+
+
+            //================= update user data ====================
+            $("#changePassForm").validate();
+            $("#changePassForm").submit(function(e){
+                e.preventDefault();
+                var curentPassFromDB = "admin";
+                //------------------------
+               
+                var newwPass = $("#newPass").val();
+                var confirmNewPass = $("#confirmNewPass").val();
+                if($("#changePassForm").valid()){
+                    //======== new password confirm ==============
+                    if(newwPass === confirmNewPass){
+                            $("#newPassError").addClass("d-none")
+                        } else {
+                            $("#newPassError").removeClass("d-none")
+                            return false
+                        }
+                    //======== new password confirm end ==============
+                    //======== password ajax ============================
+                    $.ajax({
+                    url: "webuser/"+userId,
+                    type: "POST",
+                    dataType: 'json',
+                    data: {
+                        "password": $("#currPass").val(),
+                        "newPassword": $("#newPass").val()
+                    },
+                    success: function (result) {
+                        var status = result.status;
+                        setTimeout(function(){
+                            showMessage(status,result.message)
+                        },100)
+                        
+                    }, error: function (result) {
+                        var status = result.status;
+                        setTimeout(function(){
+                            showMessage(false, status)
+                    },100)
+                    }
+                });
+                    // if(currentPassForm === curentPassFromDB){
+                    //     $("#curPassError").addClass("d-none")
+                        
+                    // } else {
+                    //     $("#curPassError").removeClass("d-none")
+                    //     return false
+                    // }
+                }
+
+            })
+
         </script>
 </body>
 

@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "createdOnTimeInMilliSecond": 1,
+        "lastModifiedOnTimeInMilliSecond": 2,
+        "name": "User",
+        "createdBy": "Ayman",
+        "lastModifiedBy": "Ayman",
+        "accessRoleList": []
+    },
+    {
+        "id": 2,
+        "createdOnTimeInMilliSecond": 1,
+        "lastModifiedOnTimeInMilliSecond": 2,
+        "name": "Administrator",
+        "createdBy": "Ayman",
+        "lastModifiedBy": "Ayman",
+        "accessRoleList": [
+            {
+                "roleName": "ROLE_ACCESS_GROUP_ADD"
+            },
+            {
+                "roleName": "ROLE_ACCESS_GROUP_DELETE"
+            },
+            {
+                "roleName": "ROLE_ACCESS_GROUP_UPDATE"
+            },
+            {
+                "roleName": "ROLE_ACCESS_GROUP_VIEW_ALL"
+            },
+            {
+                "roleName": "ROLE_ACCESS_ROLE_VIEW_ALL"
+            },
+            {
+                "roleName": "ROLE_ATTACHMENT_ADD"
+            },
+            {
+                "roleName": "ROLE_DECRYPT_OPERATIONS"
+            },
+            {
+                "roleName": "ROLE_ENCRYPT_OPERATIONS"
+            },
+            {
+                "roleName": "ROLE_SHOW_LOGS"
+            },
+            {
+                "roleName": "ROLE_SHOW_MY_FILES"
+            },
+            {
+                "roleName": "ROLE_SHOW_MY_PROFILE"
+            },
+            {
+                "roleName": "ROLE_SIGN_OPERATIONS"
+            },
+            {
+                "roleName": "ROLE_WebUser_ADD"
+            },
+            {
+                "roleName": "ROLE_WebUser_DELETE"
+            },
+            {
+                "roleName": "ROLE_WebUser_UPDATE"
+            },
+            {
+                "roleName": "ROLE_WebUser_UPLOAD_CERTIFICATE"
+            },
+            {
+                "roleName": "ROLE_WebUser_VIEW_ALL"
+            }
+        ]
+    }
+]

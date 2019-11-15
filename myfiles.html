@@ -23,32 +23,10 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td class="actions">
-                    <i class="fas fa-share-alt text-info"></i>
-                    <a href="#"><i class="fas fa-file-download text-success"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td class="actions">
-                    <img src="plugins/images/300-512.png" width="30" data-toggle="modal"
-                        data-target="#decryptFileModal" />
-                </td>
-            </tr>
+            
 
 
         </tbody>
@@ -195,18 +173,66 @@
 <script src="plugins/js/jquery.validate.min.js"></script>
 <script id="arMessages" src="plugins/ar/messages_ar.min.js"></script>
 <script>
-        readData()
-        if ($("html").attr("lang") === "en") {
-            $('#myfiles').DataTable();
-        } else {
-            $('#myfiles').DataTable(
-                {
-                    "language": {
-                        "url": "plugins/json/arDataTable.json"
+        readData();
+    var filesTable = [];
+
+    fetch("fakeData/myfiles.json")
+        .then(res => res.json())
+        .then(data => filesTable = data)
+        .then(filesTable=>  {
+            filesTable.map(row => {
+                var crDate = new Date(row.createdOnTimeInMilliSecond).toString();
+                var datArr = crDate.split(" ");
+                datArr.length = 5;
+                row.createdOnTimeInMilliSecond = datArr[0] + " " + datArr[1] + " " + datArr[2] + " " + datArr[3] + " " +datArr[4] + " " })
+
+
+            filesTable.map(row=>{
+            if(row.attachmentType === "SIGNED"){
+                row.actions =
+                ' <i class="fas fa-share-alt text-info"></i>  \n\
+                  <a href="'+ row.path +'" target="_blank"><i class="fas fa-file-download text-success"></i></a>\n\
+                '
+            } else {
+                row.actions =
+                ' <img src="plugins/images/300-512.png" width="30" data-toggle="modal" data-target="#decryptFileModal" /> '
+            }
+            }
+            )
+
+            if ($("html").attr("lang") === "en") {
+                
+                $('#myfiles').DataTable({
+                    data: filesTable,
+                    columns: [
+                        { data: "fileName" },
+                        { data: "attachmentType" },
+                        { data: "status" },
+                        { data: "createdOnTimeInMilliSecond" },
+                        { data: "actions" },
+                    ],
+                });
+            } else {
+                
+                $('#myfiles').DataTable(
+                    {
+                        "data": filesTable,
+                        "columns": [
+                            { data: "fileName" },
+                            { data: "attachmentType" },
+                            { data: "status" },
+                            { data: "createdOnTimeInMilliSecond" },
+                            { data: "actions" },
+                        ],
+                        language: {
+                            "url": "plugins/json/arDataTable.json"
+                        }
                     }
-                }
-            );
-        }
+                );
+            }
+
+
+        })
 
 
     $(".actions img").click(function () {
@@ -219,7 +245,7 @@
                 $(".close").click()
                 $("#loadingSignDecrypt").removeClass("d-none")
                 $("#userConformDecrypt").addClass("d-none");
-            }, 1000)
+            }, 10)
         }, 1000)
     })
 

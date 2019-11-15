@@ -25,7 +25,6 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
             </tr>
         </thead>
         <tbody id="tableDataArr">
@@ -84,14 +83,16 @@
                     <span id="userNameLabel">المستخدم : </span>
                     <span id="userName">محمد ابراهيم</span>
                 </p> -->
-                <form>
+                <form enctype="multipart/form-data">
                     <div class="row my-3 justify-content-center">
-                        <input type="text" hidden id="userId" class="form-control" />
+                        <input type="text" hidden id="userId" name="userId" class="form-control" />
                         <label class="addCert btn btn-secondary">
                             <span id="selectCert">Add Cert</span>
-                            <input type="file" id="certAdd" class="form-control" accept=".cert" />
+                            <input type="file" id="certAdd" name="certAdd" class="form-control" accept=".cert,.crt" />
                         </label>
-                        <p class="w-100 text-center"><small id="noteCert">يجب أن يكون الملف بامتداد cert</small></p>
+                        <p class="w-100 text-center"><small id="noteCert">
+                            يجب أن يكون الملف بامتداد cert, crt
+                        </small></p>
                         <p class="text-danger w-100 text-center d-none validateMess" id="validateMess">file is wrong
                             type</p>
                         <p class="w-100 text-center" id="Uploadedfile"></p>
@@ -116,12 +117,12 @@
             </div>
             <div class="modal-body">
 
-                <form>
+                <form enctype="multipart/form-data">
                     <div class="row my-3 justify-content-center">
 
                         <label class="addCert btn btn-secondary">
                             <span id="selectFile">Select file</span>
-                            <input type="file" id="userImport" class="form-control" accept=".xlsx,.xls" />
+                            <input type="file" id="userImport" name="userImport" class="form-control" accept=".xlsx,.xls" />
                         </label>
                         <p class="w-100 text-center"><small id="notexls">يجب أن يكون الملف بامتداد xlsx, xls</small></p>
                         <p class="text-danger w-100 text-center d-none validateMess" id="validateMessXls">file is wrong
@@ -168,7 +169,6 @@
                 $('#dataTable').DataTable({
                     data: datatableData,
                     columns: [
-                        { data: "id" },
                         { data: "userName" },
                         { data: "fullName" },
                         { data: "jobTitle" },
@@ -181,7 +181,6 @@
                     {
                         data: datatableData,
                         columns: [
-                            { data: "id" },
                             { data: "userName" },
                             { data: "fullName" },
                             { data: "jobTitle" },

@@ -1,4 +1,4 @@
-let labelDataUrl = "plugins/json/ar.json";
+var labelDataUrl = "plugins/json/ar.json";
 
 function changelang(lang){
     localStorage.setItem("secretLangItem",lang);
@@ -18,7 +18,7 @@ function changelang(lang){
 
     }
     readData();
-    window.location.reload()
+    //window.location.reload()
 }
 
 
@@ -98,6 +98,13 @@ function readData(){
         $("#resetPassBtn").text(data.resetPassBtn)
         $("#userOrPassword").text(data.userOrPassword)
         $("#changePass").text(data.changePass)
+        $("#curPassError").text(data.curPassError)
+        $("#newPassError").text(data.newPassError)
+        $("#changePassTitle").text(data.changePassTitle)
+        $("#currPass").attr("placeholder",data.currPass)
+        $("#newPass").attr("placeholder",data.newPass)
+        $("#confirmNewPass").attr("placeholder",data.confirmNewPass)
+        $("#saveNewPassword").text(data.saveNewPassword)
 
 
        let tableHead = data.usersTable;

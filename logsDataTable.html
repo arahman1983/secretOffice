@@ -1,53 +1,76 @@
 <!DOCTYPE html>
 
 
-    <div class="w-100 mb-5 ">
-        <h4 class="text-danger text-center" id="logTitle"> سجل </h4>
-    </div>
-    <table id="dataTable" class="table table-striped dataTable" style="width:100%">
-        <thead>
-            <tr id="systemLogsHeader">
-                <th class="text-center"></th>
-                <th class="text-center"></th>
-                <th class="text-center"></th>
-                <th class="text-center"></th>
-                <th class="text-center"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="text-center">1</td>
-                <td class="text-center">System Architect</td>
-                <td class="text-center">Edinburgh</td>
-                <td class="text-center">61</td>
-                <td class="text-center">2011/04/25</td>
-            </tr>
-            <tr>
-                <td class="text-center">2</td>
-                <td class="text-center">Accountant</td>
-                <td class="text-center">Tokyo</td>
-                <td class="text-center">63</td>
-                <td class="text-center">2011/07/25</td>
-            </tr>
-            
+<div class="w-100 mb-5 ">
+    <h4 class="text-danger text-center" id="logTitle"> سجل </h4>
+</div>
+<table id="logdataTable" class="table table-striped dataTable" style="width:100%">
+    <thead>
+        <tr id="systemLogsHeader">
+            <th class="text-center"></th>
+            <th class="text-center"></th>
+            <th class="text-center"></th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+    <tbody>
 
-        </tbody>
 
-    </table>
+
+    </tbody>
+
+</table>
 
 <script>
     readData();
-    if ($("html").attr("lang") === "en") {
-            $('#dataTable').DataTable();
-        } else {
-            $('#dataTable').DataTable(
-                {
-                    "language": {
-                        "url": "plugins/json/arDataTable.json"
+    var logTable = [];
+
+    fetch("fakeData/log.json")
+        .then(res => res.json())
+        .then(data => logTable = data.map(data=>data.fkattachment))
+        .then(logTable=>  {
+
+            logTable.map(row => {
+                var crDate = new Date(row.createdOnTimeInMilliSecond).toString();
+                var datArr = crDate.split(" ");
+                datArr.length = 5;
+                row.createdOnTimeInMilliSecond = datArr[0] + " " + datArr[1] + " " + datArr[2] + " " + datArr[3] + " " +datArr[4] + " " })
+
+            if ($("html").attr("lang") === "en") {
+                
+                $('#logdataTable').DataTable({
+                    data: logTable,
+                    columns: [
+                        { data: "fileName" },
+                        { data: "attachmentType" },
+                        { data: "status" },
+                        { data: "createdOnTimeInMilliSecond" },
+                    ],
+                });
+            } else {
+                
+                $('#logdataTable').DataTable(
+                    {
+                        "data": logTable,
+                        "columns": [
+                            { data: "fileName" },
+                            { data: "attachmentType" },
+                            { data: "status" },
+                            { data: "createdOnTimeInMilliSecond" },
+                        ],
+                        language: {
+                            "url": "plugins/json/arDataTable.json"
+                        }
                     }
-                }
-            );
-        }
+                );
+            }
+
+
+        })
+
+
+
+
 
 
 </script>

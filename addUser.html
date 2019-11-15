@@ -56,7 +56,7 @@
                 <hr />
                 <h4 id="userroles">صلاحيات المستخدم</h4>
                 <div class="d-flex py-3" id="roles">
-                    <div class="form-check form-check-inline col-md-6">
+                    <!-- <div class="form-check form-check-inline col-md-6">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="inlineCheckbox1"
                             value="admin" required>
                         <label class="form-check-label" for="inlineCheckbox1" id="adminLabel">admin</label>
@@ -65,7 +65,7 @@
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="inlineCheckbox1"
                             value="user" >
                         <label class="form-check-label" for="inlineCheckbox2" id="userLabel">user</label>
-                    </div>
+                    </div> -->
                 </div>
 
 
@@ -87,6 +87,22 @@
     <!-- scripts -->
     <script>
         readData()
+
+        fetch("fakeData/accessGroup.json")
+        .then(res=>res.json())
+        .then(data => data.map(row=>{
+            $("#roles").append('\n\
+            <div class="form-check form-check-inline col-md-6">\n\
+                        <input class="form-check-input" type="checkbox" name="inlineCheckbox1"\n\
+                            value="'+ row.name +'" required>\n\
+                        <label class="form-check-label" for="inlineCheckbox1">'+ row.name +'</label>\n\
+                    </div>\n\
+            ')
+        }))
+
+
+
+
         $("#formAddUser").validate();
         $("#formAddUser").submit(function (e) {
             e.preventDefault();

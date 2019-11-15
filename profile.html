@@ -17,6 +17,7 @@
         </div>
         <div class="col-md-8 mx-auto">
             <form id="formAddUser">
+                    <input class="form-control" id="userId" name="userId" hidden/>
                 <div class="form-group row">
                     <label for="userNameInput" class="col-sm-3 col-form-label" id="userNameLabel">User Name</label>
                     <div class="col-sm-9">
@@ -28,7 +29,7 @@
                     </label>
                     
                     <div class="col-sm-9">
-                            <input class="form-control" id="passWord" name="passWord" required/>
+                           <span data-toggle="modal" data-target="#changePass" class="btn btn-link" id="changePass"></span>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -59,38 +60,125 @@
                 <div class="w-100 d-flex justify-content-around">
 
                     <input type="button" id="saveProfile" class="btn btn-info" value="Add user">
-                    <button type="button" class="btn btn-danger" id="cancelBtn" onclick="window.location='allusers.html'">cancel</button>
+                    <!-- <button type="button" class="btn btn-danger" id="cancelBtn" onclick="redirectLinks('gotoAllUsers.go')">cancel</button> -->
+                    <button type="button" class="btn btn-danger" id="cancelBtn" onclick="redirectLinks('allusers.html')">cancel</button>
+
                 </div>
               
             </form>
         </div>
 
+
+        <div class="modal fade" id="changePass" tabindex="-1" role="dialog" aria-labelledby="changePassTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="changePassTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form id="changePassForm">
+                        <div class="form-group">
+                            <input type="password" id="currPass" name="currPass" placeholder="Current Password" required />
+                        </div>
+                        <div class="form-group">
+                                <input type="password" id="newPass" name="newPass" placeholder="New Password" required />
+                            </div>
+                            <div class="form-group">
+                                    <input type="password" id="confirmNewPass" name="confirmNewPass" placeholder="Confirm New Password" required />
+                                </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        <script src="plugins/js/jquery.validate.min.js"></script>
+        <script id="arMessages" src="plugins/ar/messages_ar.min.js"></script>
         
         <script>
+             readData() 
             let userData;
-                readData()   
-                userData = {
-                    "userName" : "user name",
-                    "passWord" : "••••••••",
-                    "userEmail" : "user Email",
-                    "userFullName" : "user Full name",
-                    "userPhone" : "user phone",                    
-                }
+            // $.ajax({
+            //         url: "webuser/"+userId,
+            //         type: "GET",
+            //         dataType: 'json',
+            //         data:userData,
+            //         success: function (result) {
+            //             var status = result.status;
+            //             userData = result.data
+                        
+            //         }, error: function (result) {
+            //             var status = result.status;
+            //             setTimeout(function(){
+                       
+            //                 showMessage(false, status)
+                       
+            //         },100)
+            //         }
+            //     });
+                // userData = {
+                //     "id": 1,
+                //     "email": "a@y.com",
+                //     "jobTitle": "Dev",
+                //     "fullName": "Ay Ho",
+                //     "phone": "012",
+                //     "userName": "admin",
+               
+                // }
+
                 $("#userName").val("${webuser.username}");
                 $("#userEmail").val("${webuser.email}");
                 $("#userFullName").val("${webuser.fullName}");
                 $("#userPhone").val("${webuser.phone}");
+
+
+            $("#formAddUser").validate();
             
             $("#saveProfile").click(function(e){
-                e.preventdefault();
-                userData = {
+                e.preventDefault()
+                if($("#formAddUser").valid()){
+                    userData = {
                     "userName" : $("#userName").val(),
-                    "passWord" : $("#passWord").val(),
                     "userEmail" : $("#userEmail").val(),
                     "userFullName" : $("#userFullName").val(),
                     "userPhone" : $("#userPhone").val(),   
-                }
+                    }
+
+                    $.ajax({
+                    url: "webuser/"+userId,
+                    type: "PUT",
+                    dataType: 'json',
+                    data: userData,
+                    success: function (result) {
+                        var status = result.status;
+                        setTimeout(function(){
+                            showMessage(status,result.message)
+                        },100)
+                        
+                    }, error: function (result) {
+                        var status = result.status;
+                        setTimeout(function(){
+                            showMessage(false, status)
+                    },100)
+                    }
+                });
+
+
+
                 console.log(userData);
+                }else{
+                    return false
+                }
+                
             })
         </script>
 </body>

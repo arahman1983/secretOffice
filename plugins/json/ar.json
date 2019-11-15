@@ -35,6 +35,7 @@
     "signPageTitle" : "تسجيل دخول",
     "usernameValidate": "اسم المستخدم مطلوب",
     "passwordValidate":"كلمة المرور مطلوبة",
+    "changePass":"تغيير كلمة المرور",
     "remrmberMe": "تذكرني",
     "forgetPass": "نسيت كلمة المرور",
     "myFilesTitle":"ملفاتي",

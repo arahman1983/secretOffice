@@ -230,3 +230,7 @@ label.error,label.error2{
 .col-form-label{
     text-align: var(--left);
 }
+
+.dataTables_length{
+    text-align: var(--left);
+}

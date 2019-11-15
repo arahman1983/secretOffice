@@ -18,6 +18,7 @@ function changelang(lang){
 
     }
     readData();
+    window.location.reload()
 }
 
 
@@ -96,6 +97,7 @@ function readData(){
         $("#reaetEmail").attr("placeholder",data.reaetEmail)
         $("#resetPassBtn").text(data.resetPassBtn)
         $("#userOrPassword").text(data.userOrPassword)
+        $("#changePass").text(data.changePass)
 
 
        let tableHead = data.usersTable;

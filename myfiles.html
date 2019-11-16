@@ -101,7 +101,6 @@
         </div>
     </div>
 </div>
-
 <!--Encrypt-->
 <div class="modal fade" id="encryptFileModal" tabindex="-1" role="dialog" aria-labelledby="encryptFile"
     aria-hidden="true">
@@ -190,12 +189,11 @@
             filesTable.map(row=>{
             if(row.attachmentType === "SIGNED"){
                 row.actions =
-                ' <i class="fas fa-share-alt text-info"></i>  \n\
-                  <a href="'+ row.path +'" target="_blank"><i class="fas fa-file-download text-success"></i></a>\n\
+                '<a href="'+ row.path +'" target="_blank" style="font-size:1.5em"><i class="fas fa-file-download text-success"></i></a>\n\
                 '
             } else {
                 row.actions =
-                ' <img src="plugins/images/300-512.png" width="30" data-toggle="modal" data-target="#decryptFileModal" /> '
+                ' <img src="plugins/images/300-512.png" width="30" onclick="decryptFn('+row.id+')" class="decrypt" data-toggle="modal" data-target="#decryptFileModal" /> '
             }
             }
             )
@@ -235,8 +233,9 @@
         })
 
 
-    $(".actions img").click(function () {
+        function decryptFn (id) {
         ///sending data for modal
+        console.log(id)
         setTimeout(function () {
             $("#loadingSignDecrypt").addClass("d-none");
             $("#userConformDecrypt").removeClass("d-none");
@@ -245,9 +244,23 @@
                 $(".close").click()
                 $("#loadingSignDecrypt").removeClass("d-none")
                 $("#userConformDecrypt").addClass("d-none");
-            }, 10)
+            }, 1000)
         }, 1000)
-    })
+    }
+
+    // $(".decrypt").click(function () {
+    //     ///sending data for modal
+    //     setTimeout(function () {
+    //         $("#loadingSignDecrypt").addClass("d-none");
+    //         $("#userConformDecrypt").removeClass("d-none");
+    //         console.log("token")
+    //         setTimeout(function () {
+    //             $(".close").click()
+    //             $("#loadingSignDecrypt").removeClass("d-none")
+    //             $("#userConformDecrypt").addClass("d-none");
+    //         }, 10)
+    //     }, 1000)
+    // })
 
 
     $("#signFileBtn").click(function (e) {

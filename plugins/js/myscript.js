@@ -1,8 +1,14 @@
 var labelDataUrl = "plugins/json/ar.json";
+$(document).ready(function(){
+    setTimeout(() => {
+        $(".loader").addClass("d-none")
+    }, 1000);
+    
+})
 
 function changelang(lang){
     localStorage.setItem("secretLangItem",lang);
-    $("html").attr("lang",lang)    
+    $("html").attr("lang",lang) 
     if($("html").attr("lang") === "en"){
         labelDataUrl = "plugins/json/en.json";
         $(":root").css("--direction", "ltr")
@@ -15,10 +21,10 @@ function changelang(lang){
         $(":root").css("--left", "right")
         $(":root").css("--right", "left")
         $("#arMessages").attr("src",'plugins/ar/messages_ar.min.js')
-
     }
+    
     readData();
-    //window.location.reload()
+    window.location.reload()
 }
 
 

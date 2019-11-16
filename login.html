@@ -17,6 +17,11 @@
 </head>
 
 <body>
+    <div class="loader">
+        <div>
+            <i class="fas fa-spinner text-secondary fa-spin fa-3x"></i>
+        </div>
+    </div>
     <!--Header -->
     <div class=" container logcontainer">
         <div class="row">
@@ -148,11 +153,11 @@
         
 
         $("#username").change(function(){
-            $("#username").parent().siblings("label.error").addClass("d-none").removeClass("d-block");
+            $("#usernameValidate").addClass("d-none").removeClass("d-block");
         })
 
         $("#password").change(function(){
-            $("#password").parent().siblings("label.error").addClass("d-none").removeClass("d-block");
+            $("#passwordValidate").addClass("d-none").removeClass("d-block");
         })
 
 
@@ -160,16 +165,21 @@
             // e.preventDefault()
             let userNameLogs = $("#username").val();
             let passwordLogs = $("#password").val();
-            if (userNameLogs == "") {
-                $("#username").parent().siblings("label.error").removeClass("d-none").addClass("d-block")
+            if (userNameLogs === "") {
+                $("#usernameValidate").removeClass("d-none").addClass("d-block")
                 return false
+            }else{
+                $("#usernameValidate").addClass("d-none").removeClass("d-block")
             }
-            if (userNameLogs == "") {
-                $("#password").parent().siblings("label.error").removeClass("d-none").addClass("d-block")
+
+            if (passwordLogs === "") {
+                $("#passwordValidate").removeClass("d-none").addClass("d-block")
                 return false
+            }else{
+                $("#passwordValidate").addClass("d-none").removeClass("d-block")
             }
-            $("#username").parent().siblings("label.error").addClass("d-none").removeClass("d-block");
-            $("#password").parent().siblings("label.error").removeClass("d-block").addClass("d-none")
+            // $("#username").parent().siblings("label.error").addClass("d-none").removeClass("d-block");
+            // $("#password").parent().siblings("label.error").removeClass("d-block").addClass("d-none")
 
             if(userNameLogs !== "admin" && passwordLogs !=="admin"){
                 $("#userOrPassword").removeClass("d-none")

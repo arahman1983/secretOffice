@@ -179,7 +179,8 @@ label.error,label.error2{
 
 .btn-link,.btn-link:hover{
     color:var(--secondry);
-    padding: 0px !important
+    padding: 0px !important;
+    min-width: 50px
 }
 
 .btn-lang{
@@ -258,4 +259,8 @@ label.error,label.error2{
     padding-top: 40vh;
     z-index: 9999;
     animation: mymove 1.2s ;
+}
+
+.dataTable{
+    text-align: center;
 }

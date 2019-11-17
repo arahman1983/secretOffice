@@ -137,8 +137,13 @@ table.table tbody tr.odd{
 label.error,label.error2{
     font-size: 0.8em;
     color: red;
+    float: var(--left);
+    text-align: var(--left);
+    width: 100%;
 }
-
+#manyEmails{
+    float: var(--left);
+}
 .form-check-inline label.error{
     position: absolute;
     top: 2em;
@@ -263,4 +268,8 @@ label.error,label.error2{
 
 .dataTable{
     text-align: center;
+}
+
+.modal-footer{
+    justify-content:space-between;
 }

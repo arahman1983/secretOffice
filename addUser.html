@@ -6,7 +6,7 @@
         </div>
         <div class="col-md-8 mx-auto">
             <form id="formAddUser">
-                <h4 id="userData">بيانات المستخدم</h4>
+                <h4 id="userData" style="text-align: var(--left);">بيانات المستخدم</h4>
                 <div class="form-group row">
                     <label for="userNameInput" class="col-sm-3 col-form-label" id="userNameLabel">User Name</label>
                     <div class="col-sm-9">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <hr />
-                <h4 id="userroles">صلاحيات المستخدم</h4>
+                <h4 id="userroles"  style="text-align: var(--left);">صلاحيات المستخدم</h4>
                 <div class="d-flex py-3" id="roles">
                     <!-- <div class="form-check form-check-inline col-md-6">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="inlineCheckbox1"
@@ -83,7 +83,7 @@
 
     </div>
     <script src="plugins/js/jquery.validate.min.js"></script>
-    <script id="arMessages" src="plugins/ar/messages_ar.min.js"></script>
+    <!-- <script id="arMessages" src="plugins/ar/messages_ar.min.js"></script> -->
     <!-- scripts -->
     <script>
         readData()
@@ -94,7 +94,7 @@
             $("#roles").append('\n\
             <div class="form-check form-check-inline col-md-6">\n\
                         <input class="form-check-input" type="checkbox" name="inlineCheckbox1"\n\
-                            value="'+ row.name +'" required>\n\
+                            value="'+ row.id +'" required>\n\
                         <label class="form-check-label" for="inlineCheckbox1">'+ row.name +'</label>\n\
                     </div>\n\
             ')
@@ -131,31 +131,29 @@
                 }
 
                 $.ajax({
-                    url: "webuser/",
+                    url: "webuser",
                     type: "POST",
                     dataType: 'json',
                     data:userData,
                     success: function (result) {
                         var status = result.status;
-                        setTimeout(function(){
-                            showMessage(status,result.message)
+                        var message = result.message
+                            showMessage(status,message)
                             $("#userNameInput").val("")
-                    $("#passWordInput").val("")
-                    $("#userEmailInput").val("")
-                    $("#userFullNameInput").val("")
-                    $("#userPhoneInput").val("")
-                    $("#userJobInput").val("")
-                        },100)
-                        
+                            $("#passWordInput").val("")
+                            $("#userEmailInput").val("")
+                            $("#userFullNameInput").val("")
+                            $("#userPhoneInput").val("")
+                            $("#userJobInput").val("")
                     }, error: function (result) {
                         var status = result.status;
                         setTimeout(function(){
-                       
-                            showMessage(false, status)
+                            showMessage(false, status.message)
                        
                     },100)
                     }
                 });
+                
                 console.log(userData);
             }
         })

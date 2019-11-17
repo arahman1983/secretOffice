@@ -1,15 +1,17 @@
 var labelDataUrl = "plugins/json/en.json";
 $(document).ready(function(){
-    // let sitLang = localStorage.getItem("secretLangItem");
-    // $("html").attr("lang",sitLang)
+    //let sitLang = localStorage.getItem("secretLangItem");
+   // $("html").attr("lang",sitLang)
     $("html").attr("lang","en")
-    // if($("html").attr("lang") === "en"){
-    //     labelDataUrl = "plugins/json/en.json";
+    if($("html").attr("lang") === "en"){
+        labelDataUrl = "plugins/json/en.json";
         $(":root").css("--direction", "ltr")
         $(":root").css("--left", "left")
         $(":root").css("--right", "right")
-        $("#arMessages").attr("src",'')
-    // }else if($("html").attr("lang") === "ar"){
+        $("#arMessages").remove()
+        //$("#arMessages").attr("src",'')
+    }
+    // else if($("html").attr("lang") === "ar"){
     //     labelDataUrl = "plugins/json/ar.json";
     //     $(":root").css("--direction", "rtl")
     //     $(":root").css("--left", "right")
@@ -22,6 +24,23 @@ $(document).ready(function(){
     }, 1000);
     
 })
+
+$("html").attr("lang","en")
+    if($("html").attr("lang") === "en"){
+        labelDataUrl = "plugins/json/en.json";
+        $(":root").css("--direction", "ltr")
+        $(":root").css("--left", "left")
+        $(":root").css("--right", "right")
+        $("#arMessages").attr("src",'')
+    }
+    // else if($("html").attr("lang") === "ar"){
+    //     labelDataUrl = "plugins/json/ar.json";
+    //     $(":root").css("--direction", "rtl")
+    //     $(":root").css("--left", "right")
+    //     $(":root").css("--right", "left")
+    //     $("#arMessages").attr("src",'plugins/ar/messages_ar.min.js')
+    // }
+    readData();
 
 // function changelang(lang){
 //     localStorage.setItem("secretLangItem",lang);

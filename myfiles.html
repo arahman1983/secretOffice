@@ -2,8 +2,8 @@
 
 <div>
 
-    <div class="w-100 mb-5 ">
-        <h4 class="text-danger text-center" id="myFilesTitle"> ملفاتي</h4>
+    <div class="page-header ">
+        <h4 class="page-title" id="myFilesTitle"> </h4>
     </div>
     <div class="row my-3 px-3 justify-content-start">
         <button class="btn btn-dark text-white" data-toggle="modal" data-target="#encryptFileModal" id="encryptFile">
@@ -262,7 +262,7 @@
     //     }, 1000)
     // })
 
-
+    newFiles = 0
     $("#signFileBtn").click(function (e) {
         if ($("#describe").val() == "") {
             $("#describe").siblings("label.error").removeClass("d-none")

@@ -23,13 +23,7 @@ a, a:hover{
 #signOut{
     min-width:80px
 }
-.badge-danger{
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    font-size: 0.5em;
-    vertical-align: super;
-}
+
 
 .navbar-gradient{
     background-image: linear-gradient(to left, #414042, #808285);
@@ -41,6 +35,10 @@ body{
 }
 .screens{
     min-height: 81vh;
+    background: #FFF;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: #808285 0 0 10px;
 }
 
 .footer-links li {
@@ -246,7 +244,7 @@ label.error,label.error2{
 }
 
 @keyframes mymove {
-    0%   {background: rgba(255,255,255,0)}
+    0%   {background: rgba(255,255,255,1)}
     25%  {background: rgba(255,255,255,1)}
     75% {background: rgba(255,255,255,1)}
     100% {background: rgba(255,255,255,0)}
@@ -273,3 +271,48 @@ label.error,label.error2{
 .modal-footer{
     justify-content:space-between;
 }
+
+.page-title{
+    background: gray;
+    width: fit-content;
+    padding: 0.5em;
+    color: #FFF;
+    border-radius: 15px 0 15px 0;
+    box-shadow: #ddd 0 0 10px;
+    min-width: 300px;
+    text-align: center;
+}
+
+.page-header{
+    display: flex;
+    justify-content: center;
+}
+
+.logdataTable_info{
+    text-align: var(--left);
+}
+
+#filesNotif{
+    font-size: 0.6em;
+    font-weight: 400;
+    width:fit-content;
+    padding:3px 10px;
+    height: 15px;
+    vertical-align: super;
+    margin-left: -12px;
+    top: -0.5em !important;
+}
+
+.form-check-label{
+    user-select: none;
+    cursor: pointer;
+}
+
+.nav-link i{
+    font-size: 1.3em;
+}
+
+canvas{
+    /*prevent interaction with the canvas*/
+    pointer-events:none;
+  }

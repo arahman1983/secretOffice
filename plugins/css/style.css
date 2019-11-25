@@ -173,6 +173,8 @@ label.error,label.error2{
 
 .nav-link{
     cursor: pointer;
+    padding: 0 0.4em !important;
+    margin: 0 0.4em !important;
 }
 
 

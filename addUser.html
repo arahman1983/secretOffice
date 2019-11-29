@@ -17,6 +17,7 @@
                     <label for="passWordInput" class="col-sm-3 col-form-label" id="passWordLabel">Password</label>
                     <div class="col-sm-9">
                         <input required type="password" class="form-control" name="passWordInput" id="passWordInput">
+                        <span id="msg" class="float-right"></span>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -107,12 +108,46 @@
         $("#formAddUser").validate();
         $("#formAddUser").submit(function (e) {
             e.preventDefault();
+
+            var matchedCase = new Array();
+                matchedCase.push("[$@$!%*#?&]"); // Special Charector
+                matchedCase.push("[A-Z]");      // Uppercase Alpabates
+                matchedCase.push("[0-9]");      // Numbers
+                matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+                // Check the conditions
+                var ctr = 0;
+                for (var i = 0; i < matchedCase.length; i++) {
+                    if (new RegExp(matchedCase[i]).test($("#passWordInput").val())) {
+                        ctr++;
+                    }
+                }
+                // Display it
+                var color = "";
+                var strength = "";
+                switch (ctr) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        return false
+                        break;
+                    case 4:
+                        return true
+                        break;
+                }
+
+
+
+
+
+
             if ($("#passWordInput").val() != $("#passWordCoInput").val()) {
                 $("#formAddUser").validate();
                 $("#passWordCoInput").parent().find("span").each(function () {
                     $(this).remove()
                 })
-                $("#passWordCoInput").parent().append("<span class='text-danger d-block text-right'>Password does not match<span>")
+                $("#passWordCoInput").parent().append("<span id='confirmPass' class='text-danger d-block text-right'>Password does not match<span>")
                 return false
             }
             if ($(this).valid()) {
@@ -158,5 +193,55 @@
                 console.log(userData);
             }
         })
+
+
+        $("#passWordCoInput").keyup(function(){
+            $("#passWordCoInput").parent().find("#confirmPass").remove()
+        })
+$("#passWordInput").keyup(function(){                
+                var password = $(this).val()
+                // Do not show anything when the length of password is zero.
+                if (password.length === 0) {
+                    $("#msg").text("");
+                    return false;
+                }
+                // Create an array and push all possible values that you want in password
+                var matchedCase = new Array();
+                matchedCase.push("[$@$!%*#?&]"); // Special Charector
+                matchedCase.push("[A-Z]");      // Uppercase Alpabates
+                matchedCase.push("[0-9]");      // Numbers
+                matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+                // Check the conditions
+                var ctr = 0;
+                for (var i = 0; i < matchedCase.length; i++) {
+                    if (new RegExp(matchedCase[i]).test(password)) {
+                        ctr++;
+                    }
+                }
+                // Display it
+                var color = "";
+                var strength = "";
+                switch (ctr) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        strength = "Very Weak";
+                        color = "red";
+                        break;
+                    case 3:
+                        strength = "Medium";
+                        color = "orange";
+                        break;
+                    case 4:
+                        strength = "Strong";
+                        color = "green";
+                        break;
+                }
+                $("#msg").text(strength);
+                $("#msg").css("color",color);
+            } )
+    
+
 
     </script>

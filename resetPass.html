@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="plugins/images/fav.png">
+    <link href="plugins/css/reset.css" rel="stylesheet">
+    <link href="plugins/ar/bootstrap-4.0.0-rtl-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plugins/fontawesome-free-5.6.3-web/fontawesome-free-5.6.3-web/css/all.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="plugins/css/style.css" rel="stylesheet">
+    <title>Secret Office</title>
+    <script src="plugins/js/jquery-3.4.1.min.js"></script>
+    <script src="plugins/js/popper.min.js"></script>
+</head>
+
+<body>
+    <div class="loader">
+        <div>
+            <i class="fas fa-spinner text-secondary fa-spin fa-3x"></i>
+        </div>
+    </div>
+    <!--Header -->
+    <div class=" container" style="min-height: 92vh;">
+        <div class="row">
+            <div class="col-md-6 pt-5 mx-auto">
+                <div class="row">
+                    <img src="plugins/images/logos.png" width="200px" class="mx-auto">
+                </div>
+                <div class="card my-3">
+                    <div class="card-body">
+
+                        <!-- <button class="btn btn-link btn-lang" id="btnLang"></button> -->
+                        <h4 class="card-title text-center">Change Password</h4>
+                        <label class='error d-none w-100 text-center' id="userOrPassword">password is required</label>
+                        <form id="changePassForm" class="mt-5" action="authenticateUser" method="POST" novalidate>
+                           
+                        <div class="form-group">
+                                <input type="text" class="form-control" id="resetToken" name="resetToken" placeholder="Reset Code" required />
+                                
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="newPass" name="newPass" placeholder="New Password" required />
+                                <span id="msg" class="float-right"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="confirmNewPass" name="confirmNewPass" placeholder="Confirm New Password" required />
+                                <label class="error2 d-none" id="newPassError"></label>
+                            </div>
+                            <div class="row">
+                                <button type="submit" class="btn btn-secondary mx-auto">Change Password</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Add user Form-->
+    </div>
+
+    <!---Footer-->
+
+    <hr />
+    <div class="container-fluid footer-class">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4 text-center">Powerd By <img src="plugins/images/TSS_Logo-1.png" width="50"></div>
+                <div class="col-md-4">
+                    <ul class="footer-links float-right" id="footerLinks">
+                        <!-- <li><a href="#">????????</a></li>
+                                        <li><a href="#">English</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+  
+    
+    <div class="feed-back opacity" id="feedBack">
+            <i id="feedBackIcon" class=" fa-3x"></i>
+            <p>رسالة</p>
+            <button class="btn btn-danger mx-auto" onclick="hideMessage()"> OK </button>
+        </div>
+
+    <!-- scripts -->
+    
+    
+    <!-- scripts -->
+    <script src="plugins/js/jquery-3.4.1.min.js"></script>
+    <script src="plugins/js/popper.min.js"></script>
+    <script src="plugins/ar/bootstrap-4.0.0-rtl-dist/js/bootstrap.min.js"></script>
+    <script src="plugins/js/myscript.js"></script>
+    <script src="plugins/js/jquery.validate.min.js"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+            readData()
+
+        })
+        readData()
+
+        $("#changePassForm").validate();
+            $("#changePassForm").submit(function(e){
+                e.preventDefault();
+                var curentPassFromDB = "admin";
+                //------------------------
+               
+                var newwPass = $("#newPass").val();
+                var confirmNewPass = $("#confirmNewPass").val();
+                if($("#changePassForm").valid()){
+                    //======== new password confirm ==============
+                    var matchedCase = new Array();
+                    matchedCase.push("[$@$!%*#?&]"); // Special Charector
+                    matchedCase.push("[A-Z]");      // Uppercase Alpabates
+                    matchedCase.push("[0-9]");      // Numbers
+                    matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+                    // Check the conditions
+                    var ctr = 0;
+                    for (var i = 0; i < matchedCase.length; i++) {
+                        if (new RegExp(matchedCase[i]).test(newwPass)) {
+                            ctr++;
+                        }
+                    }
+                    // Display it
+                    var color = "";
+                    var strength = "";
+                    switch (ctr) {
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                            return false
+                            break;
+                        case 4:
+                            console.log(true)
+                            break;
+                    }
+                    if(newwPass === confirmNewPass){
+                            $("#newPassError").addClass("d-none")
+                        } else {
+                            $("#newPassError").removeClass("d-none")
+                            return false
+                        }
+                    //======== new password confirm end ==============
+                    //======== password ajax ============================
+                    $.ajax({
+                    url: "webuser/"+userId,
+                    type: "POST",
+                    dataType: 'json',
+                    data: {
+                        "resetToken": $("#resetToken").val(),
+                        "newPassword": $("#newPass").val()
+                    },
+                    success: function (result) {
+                        var status = result.status;
+                        setTimeout(function(){
+                            showMessage(status,result.message)
+                        },100)
+                        
+                    }, error: function (result) {
+                        var status = result.status;
+                        setTimeout(function(){
+                            showMessage(false, status)
+                    },100)
+                    }
+                });
+                }
+            })
+
+            $("#newPass").keyup(function(){                
+                var password = $(this).val()
+                // Do not show anything when the length of password is zero.
+                if (password.length === 0) {
+                    $("#msg").text("");
+                    return false;
+                }
+                // Create an array and push all possible values that you want in password
+                var matchedCase = new Array();
+                matchedCase.push("[$@$!%*#?&]"); // Special Charector
+                matchedCase.push("[A-Z]");      // Uppercase Alpabates
+                matchedCase.push("[0-9]");      // Numbers
+                matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+                // Check the conditions
+                var ctr = 0;
+                for (var i = 0; i < matchedCase.length; i++) {
+                    if (new RegExp(matchedCase[i]).test(password)) {
+                        ctr++;
+                    }
+                }
+                // Display it
+                var color = "";
+                var strength = "";
+                switch (ctr) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        strength = "Very Weak";
+                        color = "red";
+                        break;
+                    case 3:
+                        strength = "Medium";
+                        color = "orange";
+                        break;
+                    case 4:
+                        strength = "Strong";
+                        color = "green";
+                        break;
+                }
+                $("#msg").text(strength);
+                $("#msg").css("color",color);
+            } )
+    
+</script>
+
+</body>
+
+</html>

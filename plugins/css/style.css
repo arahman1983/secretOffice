@@ -82,7 +82,7 @@ body{
 
 table.table tbody tr td:last-child{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 
@@ -106,11 +106,12 @@ table.table tbody tr.even{
 
 table.table tbody tr.odd{
     background: #FFF !important;
+    border-bottom: rgba(0,0,0,.05) solid 1px
 }
 
 .actions{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .actions i{
     padding: 0 0.5em;
@@ -128,8 +129,14 @@ table.table tbody tr.odd{
     width: 100px;
 
 }
-.addCert input{
-    display: none;
+#certAdd{
+    opacity: 0;
+    height: 0px;
+}
+
+#userImport{
+    opacity: 0;
+    height: 0px;
 }
 
 label.error,label.error2{
@@ -318,3 +325,15 @@ canvas{
     /*prevent interaction with the canvas*/
     pointer-events:none;
   }
+
+.table thead th{
+      border-right: #FFF solid 1px;
+  }
+
+.table tbody td{
+    border-right: #D1D3D4 solid 1px;
+}
+
+.table tbody td:last-child{
+    border-right: #D1D3D4 solid 0px;
+}

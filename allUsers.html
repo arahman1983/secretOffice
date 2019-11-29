@@ -82,13 +82,14 @@
                     <span id="userNameLabel">المستخدم : </span>
                     <span id="userName">محمد ابراهيم</span>
                 </p> -->
-                <form enctype="multipart/form-data">
+                <form enctype="multipart/form-data" id="certForm">
                     <div class="row my-3 justify-content-center">
                         <input type="text" hidden id="userId" name="userId" class="form-control" />
-                        <label class="addCert btn btn-secondary">
-                            <span id="selectCert">Add Cert</span>
-                            <input type="file" id="certAdd" name="certAdd" class="form-control" accept=".cert,.crt" />
-                        </label>
+                        <label class="addCert btn btn-secondary" for="certAdd">
+                            <span id="selectCert">Add Cert</span></label>
+                            <div class="row mx-auto text-center justify-content-center">
+                            <input type="file" id="certAdd" name="certAdd" class="form-control" accept=".cert,.crt" required />
+                            </div>
                         <p class="w-100 text-center"><small id="noteCert">
                             يجب أن يكون الملف بامتداد cert, crt
                         </small></p>
@@ -116,12 +117,12 @@
             </div>
             <div class="modal-body">
 
-                <form enctype="multipart/form-data">
+                <form enctype="multipart/form-data" id="importUserXL">
                     <div class="row my-3 justify-content-center">
 
                         <label class="addCert btn btn-secondary">
                             <span id="selectFile">Select file</span>
-                            <input type="file" id="userImport" name="userImport" class="form-control" accept=".xlsx,.xls" />
+                            <input type="file" id="userImport" name="userImport" class="form-control" accept=".xlsx,.xls" required />
                         </label>
                         <p class="w-100 text-center"><small id="notexls">يجب أن يكون الملف بامتداد xlsx, xls</small></p>
                         <p class="text-danger w-100 text-center d-none validateMess" id="validateMessXls">file is wrong
@@ -140,8 +141,10 @@
 
 
 <!-- scripts -->
-
+<script src="plugins/js/jquery.validate.min.js"></script>
 <script>
+    $("#certForm").validate();
+    $("#importUserXL").validate()
 
     readData();
 
@@ -235,6 +238,9 @@
     function sendIdCert(id) {
         $("#userId").val(id)
     }
+
+
+    
 
 
 

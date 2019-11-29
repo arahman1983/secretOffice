@@ -51,6 +51,43 @@
                 </div>
                 
                 <hr />
+
+                <!-- <div class="form-group row">
+                    <label for="userPhoneInput" class="col-sm-3 col-form-label">Current Signature</label>
+                    <div class="col-sm-9">
+                        <img id="currSignPreview" src="plugins//images/fav.png" width="100" class="my-3" />
+                    </div>
+                    
+                </div>
+            <div class="form-group row">
+                    <label for="userPhoneInput" class="col-sm-3 col-form-label">Add Signature</label>
+                    <div class="col-sm-9">
+                        <input type="file" onchange="readURL(this)" class="form-control" id="signaturePNG" name="signaturePNG" accept="image/*" required/>
+                        <img id="signPreview" src="" width="100" class="my-3" />
+                    </div>
+                    
+                </div> -->
+                <div class="form-group row">
+                        <label for="userPhoneInput" class="col-sm-3 col-form-label">Signature</label>
+                    <div class="col-md-4 text-center">
+                        <img src="plugins//images/fav.png"  id="signPreview" class="w-50 mx-auto my-3"/>
+                        
+                    </div>
+                    <div class="col-md-2">
+                            <a class="btn btn-secondary text-white my-3" id="downloadSign" style=" min-width: 120px; height: 38px;" 
+                            href="plugins//images/fav.png"
+                            download>
+                            <i class="fas fa-download"></i>
+                            Download</a>
+                            <label class="btn btn-secondary my-3" style=" min-width: 120px;">
+                                    <i class="fas fa-upload"></i>
+                                Upload
+                                    <input type="file" onchange="readURL(this)" class="form-control" id="signaturePNG" name="signaturePNG" accept="image/*" hidden/>
+                            </label>
+                            </div>
+                    
+                </div>
+                <hr/>
                 <div class="w-100 d-flex justify-content-around">
 
                     <input type="button" id="saveProfile" class="btn btn-info" value="Add user">
@@ -79,7 +116,7 @@
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" id="newPass" name="newPass" placeholder="New Password" required />
-                            
+                            <span id="msg" class="float-right"></span>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" id="confirmNewPass" name="confirmNewPass" placeholder="Confirm New Password" required />
@@ -159,6 +196,33 @@
                 var confirmNewPass = $("#confirmNewPass").val();
                 if($("#changePassForm").valid()){
                     //======== new password confirm ==============
+                    var matchedCase = new Array();
+                    matchedCase.push("[$@$!%*#?&]"); // Special Charector
+                    matchedCase.push("[A-Z]");      // Uppercase Alpabates
+                    matchedCase.push("[0-9]");      // Numbers
+                    matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+                    // Check the conditions
+                    var ctr = 0;
+                    for (var i = 0; i < matchedCase.length; i++) {
+                        if (new RegExp(matchedCase[i]).test(newwPass)) {
+                            ctr++;
+                        }
+                    }
+                    // Display it
+                    var color = "";
+                    var strength = "";
+                    switch (ctr) {
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                            return false
+                            break;
+                        case 4:
+                            return true
+                            break;
+                    }
                     if(newwPass === confirmNewPass){
                             $("#newPassError").addClass("d-none")
                         } else {
@@ -198,6 +262,81 @@
                 }
 
             })
+
+
+            function readURL(input) {
+
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#signPreview').attr('src', e.target.result);
+                        $('#downloadSign').attr('href',e.target.result)
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+                }
+                
+$("#newPass").keyup(function(){                
+                var password = $(this).val()
+                // Do not show anything when the length of password is zero.
+                if (password.length === 0) {
+                    $("#msg").text("");
+                    return false;
+                }
+                // Create an array and push all possible values that you want in password
+                var matchedCase = new Array();
+                matchedCase.push("[$@$!%*#?&]"); // Special Charector
+                matchedCase.push("[A-Z]");      // Uppercase Alpabates
+                matchedCase.push("[0-9]");      // Numbers
+                matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+                // Check the conditions
+                var ctr = 0;
+                for (var i = 0; i < matchedCase.length; i++) {
+                    if (new RegExp(matchedCase[i]).test(password)) {
+                        ctr++;
+                    }
+                }
+                // Display it
+                var color = "";
+                var strength = "";
+                switch (ctr) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        strength = "Very Weak";
+                        color = "red";
+                        break;
+                    case 3:
+                        strength = "Medium";
+                        color = "orange";
+                        break;
+                    case 4:
+                        strength = "Strong";
+                        color = "green";
+                        break;
+                }
+                $("#msg").text(strength);
+                $("#msg").css("color",color);
+            } )
+    
+
+
+
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#signPreview').attr('src', e.target.result);
+                        $('#downloadSign').attr('href',e.target.result);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                }
+              };
+
 
         </script>
 </body>

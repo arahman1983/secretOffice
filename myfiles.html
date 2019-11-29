@@ -168,10 +168,78 @@
 </div>
 </div>
 
+<div class="modal fade" id="forwardFileModal" tabindex="-1" role="dialog" aria-labelledby="forwardFile"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-info" > Forward File </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formForward">
+                    <div id="fileDescEncrypt">
+                            <input id="fileIdforw" name="fileIdforw" class="form-control" type="text" hidden>
+
+                        <div class="form-group">
+                            <label class="col-form-label w-100" id="emailLable">Email</label>
+                            <input id="emailForward" name="emailForward" class="form-control" type="email" required>
+                            <label class="error2 d-none">This field must containes Emails</label>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label w-100" >Notes </label>
+                            <textarea id="forwardNotes" name="forwardNotes" class="form-control" ></textarea>
+
+                        </div>
+
+                        <div class="modal-footer d-flex justify-content-around">
+                            <input type="submit" class="btn btn-secondary" id="forwardFileBtn" value="Forward File">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirm delete</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <input type="text" hidden id="idUserForDelete" />
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <span>Are you sure you want to delete this file ?</span>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn" data-dismiss="modal">cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 <!--ends Modal -->
 <script src="plugins/js/jquery.validate.min.js"></script>
 <!-- <script id="arMessages" src="plugins/ar/messages_ar.min.js"></script> -->
 <script>
+
+    $("#formForward").validate()
         readData();
     var filesTable = [];
 
@@ -190,10 +258,14 @@
             if(row.attachmentType === "SIGNED"){
                 row.actions =
                 '<a href="'+ row.path +'" target="_blank" style="font-size:1.5em"><i class="fas fa-file-download text-success"></i></a>\n\
+                <i class="fas fa-share pt-2 text-info deleteUser " onclick="sendIdForward(' + row.id + ')" data-toggle="modal" data-target="#forwardFileModal" data-whatever="' + row.id + '"></i>\n\
+                <i class="fas fa-trash-alt pt-2 text-danger deleteUser" onclick="sendIdDelete(' + row.id + ')" data-toggle="modal" data-target="#deleteModal" data-whatever="' + row.id + '"></i>\n\
                 '
             } else {
                 row.actions =
-                ' <img src="plugins/images/300-512.png" width="30" onclick="decryptFn('+row.id+')" class="decrypt" data-toggle="modal" data-target="#decryptFileModal" /> '
+                ' <img src="plugins/images/300-512.png" width="30" class="mx-3" onclick="decryptFn('+row.id+')" class="decrypt" data-toggle="modal" data-target="#decryptFileModal" /> \n\
+                <i class="fas fa-trash-alt pt-2 text-danger deleteUser" onclick="sendIdDelete(' + row.id + ')" data-toggle="modal" data-target="#deleteModal" data-whatever="' + row.id + '"></i>\n\
+                '
             }
             }
             )
@@ -326,6 +398,81 @@
                 }, 1000);
             }, 1000);
         }, 1000)
+    })
+
+
+    function sendIdDelete(id) {
+        $("#idUserForDelete").val(id)
+    }
+
+    function sendIdForward(id){
+        $("#fileIdforw").val(id)
+    }
+
+///========================== Function to delete the file ========================
+    $("#confirmDelete").click(function () {
+        var userIdDeleted = $("#idUserForDelete").val()
+        $.ajax({
+            url: "",
+            type: "DELETE",
+            dataType: 'json',
+            success: function (result) {
+                var status = result.status;
+                $('#deleteModal').removeClass('show');
+                $('.modal-backdrop.fade.show').removeClass('show')
+                setTimeout(function(){
+                    showMessage(status,result.message)
+                },100)
+                
+            }, error: function (result) {
+                var status = result.status;
+  
+                $('#deleteModal').removeClass('show');
+                $('.modal-backdrop.fade.show').removeClass('show')
+                setTimeout(function(){
+                if (status == 404) {
+                    showMessage(false, "تعذر الوصول للموقع")
+                }
+            },100)
+            }
+        });
+    })
+
+
+//========================== Function to forward the file ========================
+    $("#forwardFileBtn").click(function(){
+        let dataForward = {
+            fileId : $("#fileIdforw").val(),
+            email: $("#emailForward").val(),
+            notes: $("#forwardNotes").val(),
+        }
+
+        $.ajax({
+            url: "",
+            type: "POST",
+            dataType: 'json',
+            success: function (result) {
+                var status = result.status;
+                $('#forwardFileModal').removeClass('show');
+                $('.modal-backdrop.fade.show').removeClass('show').addClass("d-none")
+                setTimeout(function(){
+                    showMessage(status,result.message)
+                },100)
+                
+            }, error: function (result) {
+                var status = result.status;
+  
+                $('#deleteModal').removeClass('show');
+                $('.modal-backdrop.fade.show').removeClass('show')
+                setTimeout(function(){
+                if (status == 404) {
+                    showMessage(false, "تعذر الوصول للموقع")
+                }
+            },100)
+            }
+        });
+
+
     })
 
 </script>
